@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>田中建築｜木の家の大工｜三重県四日市</title>
+<meta name="description" content="三重県四日市の大工の工務店「田中建築」。自然素材をふんだんに使った注文住宅、高気密・高断熱住宅、古民家リノベーション、耐震工事まで。木とともに暮らす家づくりをご提案します。">
+<!--
+  田中建築 ランディングページ（モック / site #1）
+  ※ TEL・FAX・郵便番号・SNSリンクはダミーです。確定後に差し替えてください。
+  外部画像・外部フォントは未使用（完全自己完結）。写真枠はSVGイラストで表現しています。
+-->
+<style>
+  :root{
+    --green:#5b6e46; --green-d:#43522f;
+    --cream:#f4efe4; --cream-2:#faf7f0;
+    --ink:#36352f; --ink-soft:#6f6e64;
+    --wood:#b08653; --wood-d:#9c7544;
+    --line:#e6e0d2; --white:#fff;
+    --mincho:"Hiragino Mincho ProN","Hiragino Mincho Pro","YuMincho","Yu Mincho","Noto Serif JP",serif;
+    --gothic:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","YuGothic","Meiryo","Noto Sans JP",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--gothic);color:var(--ink);background:var(--white);line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block}
+  [id]{scroll-margin-top:84px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .arr{display:inline-block;margin-left:.5em;transition:transform .2s}
+  .mincho{font-family:var(--mincho)}
+
+  /* ===== Header ===== */
+  .site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .logo{width:38px;height:38px;color:var(--green)}
+  .brand .name{font-family:var(--mincho);font-size:21px;font-weight:700;letter-spacing:.08em;color:var(--ink);line-height:1.1}
+  .brand .name small{display:block;font-family:var(--gothic);font-size:10px;font-weight:400;letter-spacing:.18em;color:var(--ink-soft);margin-top:2px}
+  .brand .name .en{display:inline-block;font-family:var(--gothic);font-size:10px;letter-spacing:.3em;color:var(--wood-d);margin-left:8px;vertical-align:middle}
+  .nav-links{display:flex;align-items:center;gap:28px}
+  .nav-links a{font-size:14px;letter-spacing:.06em;color:var(--ink);transition:color .2s}
+  .nav-links a:hover{color:var(--green)}
+  .nav-toggle{display:none;width:40px;height:40px;border:1px solid var(--line);border-radius:6px;background:var(--white);cursor:pointer;position:relative}
+  .nav-toggle span,.nav-toggle span::before,.nav-toggle span::after{content:"";position:absolute;left:9px;width:20px;height:2px;background:var(--ink);transition:.25s}
+  .nav-toggle span{top:19px}
+  .nav-toggle span::before{top:-6px}.nav-toggle span::after{top:6px}
+
+  /* ===== Hero ===== */
+  .hero{position:relative;min-height:560px;display:flex;align-items:center;overflow:hidden;color:#fff}
+  .hero-bg{position:absolute;inset:0;width:100%;height:100%}
+  .hero-bg svg{width:100%;height:100%}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(22,30,16,.74) 0%,rgba(22,30,16,.45) 45%,rgba(22,30,16,.08) 100%)}
+  .hero .wrap{position:relative;z-index:2;width:100%}
+  .hero h1{font-family:var(--mincho);font-size:42px;font-weight:700;line-height:1.55;letter-spacing:.04em;text-shadow:0 2px 16px rgba(0,0,0,.3)}
+  .hero p.lead{margin-top:22px;max-width:480px;font-size:14.5px;line-height:2.1;letter-spacing:.03em;text-shadow:0 1px 10px rgba(0,0,0,.35)}
+  .hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+  .btn{display:inline-flex;align-items:center;font-size:14px;letter-spacing:.05em;padding:14px 26px;border-radius:3px;transition:.2s;cursor:pointer}
+  .btn:hover .arr{transform:translateX(4px)}
+  .btn-primary{background:var(--green);color:#fff;border:1px solid var(--green)}
+  .btn-primary:hover{background:var(--green-d)}
+  .btn-ghost{background:rgba(255,255,255,.95);color:var(--ink);border:1px solid rgba(255,255,255,.95)}
+  .btn-ghost:hover{background:#fff}
+
+  /* ===== Section title ===== */
+  .sec{padding:66px 0}
+  .sec-title{text-align:center;margin-bottom:42px}
+  .sec-title h2{font-family:var(--mincho);font-size:27px;font-weight:700;letter-spacing:.14em;color:var(--ink)}
+  .sec-title h2 .en{display:block;font-family:var(--gothic);font-size:11px;font-weight:400;letter-spacing:.3em;color:var(--wood-d);margin-bottom:10px}
+  .sec-title .bar{width:42px;height:3px;background:var(--wood);margin:16px auto 0;border-radius:2px}
+
+  /* ===== Features bar ===== */
+  .features{background:var(--cream)}
+  .features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+  .feature{text-align:center}
+  .feature .ic{width:74px;height:74px;margin:0 auto 16px;border:1px solid var(--line);background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--green)}
+  .feature .ic svg{width:38px;height:38px}
+  .feature h3{font-family:var(--mincho);font-size:17px;font-weight:700;margin-bottom:10px;letter-spacing:.04em}
+  .feature p{font-size:12.5px;color:var(--ink-soft);line-height:1.9}
+
+  /* ===== Cards (services) ===== */
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;transition:.25s}
+  .card:hover{box-shadow:0 10px 28px rgba(60,70,40,.12);transform:translateY(-3px)}
+  .card-img{width:100%;height:158px;background:var(--cream)}
+  .card-img svg{width:100%;height:100%}
+  .card-body{padding:18px 18px 16px;flex:1;display:flex;flex-direction:column}
+  .card-body h3{font-family:var(--mincho);font-size:16.5px;font-weight:700;letter-spacing:.04em;margin-bottom:9px}
+  .card-body p{font-size:12.5px;color:var(--ink-soft);line-height:1.85;flex:1}
+  .card-link{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--wood-d);letter-spacing:.04em}
+
+  /* ===== Works ===== */
+  .works{background:var(--cream-2)}
+  .works .card-img{height:204px}
+  .work .card-body{text-align:center;align-items:center}
+  .work .card-link{border-top:none;padding-top:8px;margin-top:8px}
+
+  /* ===== Stats ===== */
+  .stats{background:linear-gradient(180deg,#586c41,#46562f);color:#fff;padding:52px 0}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{text-align:center;padding:6px 14px;border-left:1px solid rgba(255,255,255,.22)}
+  .stat:first-child{border-left:none}
+  .stat .ic{height:42px;margin-bottom:10px;color:#fff;opacity:.92}
+  .stat .ic svg{width:42px;height:42px;margin:0 auto}
+  .stat .label{font-size:12.5px;letter-spacing:.08em;opacity:.9}
+  .stat .num{font-family:var(--mincho);font-size:44px;font-weight:700;line-height:1.1;margin:2px 0}
+  .stat .num small{font-size:18px;font-weight:400;margin-left:2px}
+  .stat .sub{font-size:11px;opacity:.72}
+
+  /* ===== Commitment ===== */
+  .commit-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+  .commit{text-align:center}
+  .commit .ph{width:100%;height:118px;border-radius:6px;overflow:hidden;margin-bottom:14px;background:var(--cream)}
+  .commit .ph svg{width:100%;height:100%}
+  .commit h3{font-family:var(--mincho);font-size:15px;font-weight:700;margin-bottom:9px;letter-spacing:.04em}
+  .commit p{font-size:12px;color:var(--ink-soft);line-height:1.85}
+
+  /* ===== Company / message ===== */
+  .company{background:var(--cream-2)}
+  .msg-grid{display:grid;grid-template-columns:230px minmax(0,1fr) 230px;gap:34px;align-items:center}
+  .msg-img{height:286px;border-radius:6px;overflow:hidden;background:var(--cream)}
+  .msg-img svg{width:100%;height:100%}
+  .msg-body h3{font-family:var(--mincho);font-size:22px;font-weight:700;letter-spacing:.08em;margin-bottom:20px}
+  .msg-body p{font-size:13.5px;line-height:2.15;color:var(--ink);letter-spacing:.02em}
+  .msg-body .sign{margin-top:22px;text-align:right;font-size:13px;color:var(--ink-soft)}
+  .msg-body .sign b{font-family:var(--mincho);font-size:17px;color:var(--ink);margin-left:8px;letter-spacing:.06em}
+
+  /* ===== Consult ===== */
+  .consult-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .consult-card{display:flex;gap:16px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:16px;align-items:center;transition:.25s}
+  .consult-card:hover{box-shadow:0 8px 22px rgba(60,70,40,.1)}
+  .consult-card .ph{width:96px;height:96px;flex:none;border-radius:6px;overflow:hidden;background:var(--cream)}
+  .consult-card .ph svg{width:100%;height:100%}
+  .consult-card h3{font-family:var(--mincho);font-size:16px;font-weight:700;margin-bottom:7px;letter-spacing:.03em}
+  .consult-card p{font-size:12px;color:var(--ink-soft);line-height:1.8}
+  .consult-card .card-link{margin-top:9px;padding-top:0;border-top:none;font-size:12px;color:var(--wood-d)}
+
+  /* ===== CTA band ===== */
+  .cta{background:#e7ebdc}
+  .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:30px 0}
+  .cta-left{display:flex;align-items:center;gap:20px}
+  .cta-left .ic{width:60px;height:60px;flex:none;border:1.5px solid var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--green)}
+  .cta-left .ic svg{width:30px;height:30px}
+  .cta-left h3{font-family:var(--mincho);font-size:22px;font-weight:700;letter-spacing:.06em;color:var(--green-d)}
+  .cta-left p{font-size:12.5px;color:var(--ink-soft);margin-top:5px}
+
+  /* ===== Footer ===== */
+  .site-footer{background:var(--green-d);color:#e9ecdf;padding:50px 0 22px}
+  .footer-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+  .footer-brand{max-width:360px}
+  .footer-brand .brand .logo{color:#e9ecdf}
+  .footer-brand .name{color:#fff}
+  .footer-brand .name small{color:#bcc4ab}
+  .footer-info{margin-top:18px;font-size:12.5px;line-height:2;color:#cdd3bd}
+  .footer-nav{display:flex;gap:48px}
+  .footer-nav ul{list-style:none}
+  .footer-nav li{margin-bottom:12px;font-size:13px}
+  .footer-nav a{color:#dfe4d2}
+  .footer-nav a:hover{color:#fff;text-decoration:underline}
+  .footer-social{display:flex;gap:12px;margin-top:8px}
+  .footer-social a{width:38px;height:38px;border:1px solid rgba(255,255,255,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#e9ecdf;transition:.2s}
+  .footer-social a:hover{background:rgba(255,255,255,.12)}
+  .footer-social svg{width:18px;height:18px}
+  .footer-bottom{margin-top:40px;padding-top:18px;border-top:1px solid rgba(255,255,255,.16);display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:#b6bda3}
+  .to-top{width:40px;height:40px;border:1px solid rgba(255,255,255,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#e9ecdf}
+  .to-top:hover{background:rgba(255,255,255,.12)}
+
+  /* ===== Responsive ===== */
+  @media (max-width:980px){
+    .features-grid{grid-template-columns:repeat(2,1fr);gap:32px 24px}
+    .grid-4{grid-template-columns:repeat(2,1fr)}
+    .commit-grid{grid-template-columns:repeat(3,1fr);gap:26px 18px}
+    .msg-grid{grid-template-columns:1fr;gap:26px}
+    .msg-img{height:260px;max-width:420px;margin:0 auto;width:100%}
+    .msg-body{text-align:center}
+    .msg-body .sign{text-align:center}
+  }
+  @media (max-width:860px){
+    .nav-links{position:absolute;top:66px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 14px 24px rgba(0,0,0,.08);display:none}
+    body.nav-open .nav-links{display:flex}
+    .nav-links a{padding:15px 24px;border-top:1px solid var(--line)}
+    .nav-toggle{display:block}
+    .grid-3,.consult-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto}
+    .stats-grid{grid-template-columns:repeat(2,1fr);gap:32px 0}
+    .stat:nth-child(2){border-left:none}
+    .stat:nth-child(odd){border-left:none}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 18px}
+    .hero{min-height:500px}
+    .hero h1{font-size:30px}
+    .sec{padding:50px 0}
+    .grid-4{grid-template-columns:1fr;max-width:400px;margin:0 auto}
+    .features-grid{grid-template-columns:1fr;max-width:360px;margin:0 auto}
+    .commit-grid{grid-template-columns:repeat(2,1fr)}
+    .footer-top{gap:30px}
+    .footer-nav{gap:34px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ SVG ASSETS (gradients + symbols) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe3ef"/><stop offset="1" stop-color="#eaf2ec"/></linearGradient>
+    <linearGradient id="woodGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#caa069"/><stop offset="1" stop-color="#a87c4d"/></linearGradient>
+    <linearGradient id="woodGradLite" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ddba8c"/><stop offset="1" stop-color="#c1935c"/></linearGradient>
+    <linearGradient id="roofGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#514f47"/><stop offset="1" stop-color="#35342e"/></linearGradient>
+    <linearGradient id="greenGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#728c50"/><stop offset="1" stop-color="#566a41"/></linearGradient>
+    <linearGradient id="glassGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dceaec"/><stop offset="1" stop-color="#a7c3c9"/></linearGradient>
+    <linearGradient id="frameGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d0a974"/><stop offset="1" stop-color="#b5824f"/></linearGradient>
+    <linearGradient id="plasterGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3ede0"/><stop offset="1" stop-color="#e4ddcb"/></linearGradient>
+
+    <!-- logo -->
+    <symbol id="ic-logo" viewBox="0 0 48 48">
+      <rect x="3" y="3" width="42" height="42" rx="9" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M24 10 L31 22 H17 Z M24 17 L34 31 H14 Z" fill="currentColor"/>
+      <rect x="22.4" y="30" width="3.2" height="8" fill="currentColor"/>
+    </symbol>
+
+    <!-- feature line icons -->
+    <symbol id="ic-tree" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M24 7 L33 21 H27 L34 32 H14 L21 21 H15 Z"/><line x1="24" y1="32" x2="24" y2="41"/></g></symbol>
+    <symbol id="ic-house" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M9 23 L24 10 L39 23"/><path d="M13 21 V39 H35 V21"/><path d="M21 39 V30 H27 V39"/><circle cx="24" cy="24" r="2.4"/></g></symbol>
+    <symbol id="ic-hammer" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 30 L33 30 L37 22 L13 22 Z"/><path d="M21 22 L24 16 H28 L26 22"/><line x1="9" y1="33.5" x2="37" y2="33.5"/><path d="M37 33 q5 -1 8 -4"/></g></symbol>
+    <symbol id="ic-people" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="16" r="5.2"/><path d="M15 37 v-3 a9 9 0 0 1 18 0 v3"/><circle cx="10.5" cy="19" r="3.4"/><path d="M5 34 v-2 a6 6 0 0 1 7.2-5.9"/><circle cx="37.5" cy="19" r="3.4"/><path d="M43 34 v-2 a6 6 0 0 0 -7.2-5.9"/></g></symbol>
+
+    <!-- stat icons -->
+    <symbol id="ic-home" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M8 22 L24 9 L40 22"/><path d="M12 20 V40 H36 V20"/><rect x="20" y="28" width="8" height="12"/></g></symbol>
+    <symbol id="ic-cal" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><rect x="9" y="11" width="30" height="28" rx="3"/><line x1="9" y1="19" x2="39" y2="19"/><line x1="17" y1="7" x2="17" y2="14"/><line x1="31" y1="7" x2="31" y2="14"/></g></symbol>
+    <symbol id="ic-smile" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="24" cy="24" r="15"/><path d="M17 28 q7 7 14 0"/></g><circle cx="19" cy="20.5" r="1.6" fill="currentColor"/><circle cx="29" cy="20.5" r="1.6" fill="currentColor"/></symbol>
+    <symbol id="ic-check" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M24 8 l13 5 v9 c0 8 -6 13.5 -13 17 c-7 -3.5 -13 -9 -13 -17 v-9 z"/><path d="M18 24 l4.5 4.5 8 -9"/></g></symbol>
+    <symbol id="ic-phone" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 7 h6 l3 9 -4.5 3 a19 19 0 0 0 8.5 8.5 l3 -4.5 9 3 v6 a3.5 3.5 0 0 1 -3.7 3.5 A30 30 0 0 1 10.5 10.7 a3.5 3.5 0 0 1 3.5 -3.7 z"/></g></symbol>
+
+    <!-- social -->
+    <symbol id="ic-ig" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.07 1.2.06 1.8.25 2.2.42.6.22 1 .48 1.4.9.42.4.68.8.9 1.4.17.4.36 1 .42 2.2.06 1.2.07 1.6.07 4.8s0 3.6-.07 4.8c-.06 1.2-.25 1.8-.42 2.2a3.9 3.9 0 0 1-.9 1.4c-.4.42-.8.68-1.4.9-.4.17-1 .36-2.2.42-1.2.06-1.6.07-4.8.07s-3.6 0-4.8-.07c-1.2-.06-1.8-.25-2.2-.42a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.17-.4-.36-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.8c.06-1.2.25-1.8.42-2.2.22-.6.48-1 .9-1.4.4-.42.8-.68 1.4-.9.4-.17 1-.36 2.2-.42C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.07-.9.04-1.4.2-1.7.32-.43.17-.74.37-1.06.7-.32.32-.52.63-.7 1.06-.12.3-.28.8-.32 1.7C3.96 8.5 3.96 8.9 3.96 12s0 3.5.07 4.7c.04.9.2 1.4.32 1.7.17.43.37.74.7 1.06.32.32.63.52 1.06.7.3.12.8.28 1.7.32 1.2.07 1.6.07 4.7.07s3.5 0 4.7-.07c.9-.04 1.4-.2 1.7-.32.43-.17.74-.37 1.06-.7.32-.32.52-.63.7-1.06.12-.3.28-.8.32-1.7.07-1.2.07-1.6.07-4.7s0-3.5-.07-4.7c-.04-.9-.2-1.4-.32-1.7a2.9 2.9 0 0 0-.7-1.06 2.9 2.9 0 0 0-1.06-.7c-.3-.12-.8-.28-1.7-.32C15.5 4 15.1 4 12 4zm0 3.06a4.94 4.94 0 1 1 0 9.88 4.94 4.94 0 0 1 0-9.88zm0 1.8a3.14 3.14 0 1 0 0 6.28 3.14 3.14 0 0 0 0-6.28zm5.13-.36a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0z"/></symbol>
+    <symbol id="ic-yt" viewBox="0 0 24 24"><path fill="currentColor" d="M23.5 6.5a3 3 0 0 0-2.1-2.1C19.5 3.9 12 3.9 12 3.9s-7.5 0-9.4.5A3 3 0 0 0 .5 6.5 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.5 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.5zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></symbol>
+
+    <!-- scene: exterior wood house -->
+    <symbol id="sc-exterior" viewBox="0 0 400 280" preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="280" fill="url(#skyGrad)"/>
+      <circle cx="322" cy="58" r="40" fill="#fff" opacity="0.45"/>
+      <g fill="#7f9463" opacity="0.7"><ellipse cx="58" cy="180" rx="48" ry="26"/><ellipse cx="125" cy="186" rx="40" ry="22"/><ellipse cx="362" cy="184" rx="52" ry="24"/></g>
+      <rect y="196" width="400" height="84" fill="url(#greenGrad)"/>
+      <polygon points="150,96 248,52 346,96" fill="url(#roofGrad)"/>
+      <rect x="158" y="94" width="180" height="106" fill="url(#woodGrad)"/>
+      <g stroke="#8f6a3f" stroke-width="1" opacity="0.5"><line x1="158" y1="118" x2="338" y2="118"/><line x1="158" y1="142" x2="338" y2="142"/><line x1="158" y1="166" x2="338" y2="166"/></g>
+      <rect x="178" y="112" width="44" height="40" fill="url(#glassGrad)" stroke="#6b513a" stroke-width="2"/><line x1="200" y1="112" x2="200" y2="152" stroke="#6b513a" stroke-width="2"/>
+      <rect x="274" y="112" width="44" height="40" fill="url(#glassGrad)" stroke="#6b513a" stroke-width="2"/><line x1="296" y1="112" x2="296" y2="152" stroke="#6b513a" stroke-width="2"/>
+      <rect x="232" y="150" width="34" height="50" fill="#7a5836"/>
+      <g><rect x="40" y="150" width="9" height="52" fill="#7a5836"/><circle cx="44" cy="140" r="30" fill="#6f8a4f"/><circle cx="26" cy="152" r="20" fill="#7d975a"/><circle cx="62" cy="151" r="22" fill="#62794a"/></g>
+    </symbol>
+
+    <!-- scene: interior -->
+    <symbol id="sc-interior" viewBox="0 0 400 280" preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="280" fill="url(#plasterGrad)"/>
+      <rect x="44" y="44" width="152" height="152" fill="url(#glassGrad)" stroke="#9a8a6f" stroke-width="4"/>
+      <line x1="120" y1="44" x2="120" y2="196" stroke="#9a8a6f" stroke-width="4"/><line x1="44" y1="120" x2="196" y2="120" stroke="#9a8a6f" stroke-width="4"/>
+      <circle cx="80" cy="168" r="22" fill="#86a063" opacity="0.7"/><circle cx="162" cy="174" r="17" fill="#9bb277" opacity="0.7"/>
+      <polygon points="60,58 192,58 250,210 120,250" fill="#fff6df" opacity="0.32"/>
+      <polygon points="0,210 400,210 400,280 0,280" fill="url(#woodGrad)"/>
+      <g stroke="#8f6a3f" stroke-width="1" opacity="0.5"><line x1="0" y1="234" x2="400" y2="234"/><line x1="0" y1="258" x2="400" y2="258"/></g>
+      <rect x="250" y="186" width="110" height="14" rx="3" fill="#a9794a"/><rect x="262" y="200" width="6" height="15" fill="#8a6238"/><rect x="342" y="200" width="6" height="15" fill="#8a6238"/>
+      <rect x="300" y="150" width="18" height="20" fill="#b98e58"/><circle cx="309" cy="142" r="16" fill="#6f8a4f"/>
+    </symbol>
+
+    <!-- scene: timber frame -->
+    <symbol id="sc-frame" viewBox="0 0 400 280" preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="280" fill="url(#skyGrad)"/>
+      <rect y="206" width="400" height="74" fill="#cdbf9e"/>
+      <g fill="url(#frameGrad)"><rect x="60" y="204" width="280" height="11"/><rect x="70" y="80" width="12" height="128"/><rect x="150" y="80" width="12" height="128"/><rect x="238" y="80" width="12" height="128"/><rect x="318" y="80" width="12" height="128"/><rect x="60" y="80" width="280" height="12"/><rect x="60" y="146" width="280" height="9"/></g>
+      <g stroke="#b5824f" stroke-width="9" stroke-linecap="round"><line x1="84" y1="202" x2="148" y2="94"/><line x1="316" y1="202" x2="252" y2="94"/></g>
+      <polygon points="50,82 200,30 350,82 350,73 200,21 50,73" fill="url(#frameGrad)"/>
+      <g stroke="#b5824f" stroke-width="8" stroke-linecap="round"><line x1="120" y1="57" x2="200" y2="80"/><line x1="280" y1="57" x2="200" y2="80"/></g>
+    </symbol>
+
+    <!-- scene: old folk house -->
+    <symbol id="sc-old" viewBox="0 0 400 280" preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="280" fill="url(#skyGrad)"/>
+      <ellipse cx="352" cy="150" rx="80" ry="40" fill="#7f9463" opacity="0.55"/>
+      <rect y="205" width="400" height="75" fill="url(#greenGrad)"/>
+      <polygon points="40,152 200,60 360,152" fill="#56534b"/>
+      <polygon points="40,152 200,60 360,152 360,162 200,72 40,162" fill="#403e38"/>
+      <rect x="78" y="150" width="244" height="58" fill="#d8cdb4"/>
+      <g fill="#7a5836"><rect x="78" y="150" width="10" height="58"/><rect x="312" y="150" width="10" height="58"/><rect x="196" y="150" width="8" height="58"/></g>
+      <rect x="100" y="158" width="80" height="44" fill="#efe6d2" stroke="#7a5836" stroke-width="2"/>
+      <rect x="220" y="158" width="80" height="44" fill="#efe6d2" stroke="#7a5836" stroke-width="2"/>
+      <g stroke="#b9a981" stroke-width="1.4"><line x1="100" y1="173" x2="180" y2="173"/><line x1="100" y1="188" x2="180" y2="188"/><line x1="127" y1="158" x2="127" y2="202"/><line x1="153" y1="158" x2="153" y2="202"/><line x1="220" y1="173" x2="300" y2="173"/><line x1="220" y1="188" x2="300" y2="188"/><line x1="247" y1="158" x2="247" y2="202"/><line x1="273" y1="158" x2="273" y2="202"/></g>
+    </symbol>
+
+    <!-- scene: hiraya (single story) -->
+    <symbol id="sc-hiraya" viewBox="0 0 400 280" preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="280" fill="url(#skyGrad)"/>
+      <circle cx="58" cy="54" r="30" fill="#fff" opacity="0.4"/>
+      <rect y="200" width="400" height="80" fill="url(#greenGrad)"/>
+      <polygon points="40,150 110,118 360,118 360,150" fill="url(#roofGrad)"/>
+      <rect x="60" y="148" width="290" height="58" fill="url(#woodGrad)"/>
+      <g stroke="#8f6a3f" stroke-width="1" opacity="0.5"><line x1="60" y1="176" x2="350" y2="176"/></g>
+      <rect x="80" y="158" width="92" height="40" fill="url(#glassGrad)" stroke="#6b513a" stroke-width="2"/>
+      <rect x="190" y="158" width="60" height="40" fill="url(#glassGrad)" stroke="#6b513a" stroke-width="2"/>
+      <rect x="270" y="158" width="62" height="48" fill="#7a5836"/>
+      <polygon points="150,280 196,206 240,206 244,280" fill="#cdbf9e"/>
+      <g fill="#b6ac8c"><rect x="168" y="222" width="44" height="8" rx="3"/><rect x="170" y="244" width="48" height="8" rx="3"/><rect x="174" y="266" width="52" height="8" rx="3"/></g>
+      <circle cx="70" cy="208" r="16" fill="#6f8a4f"/><circle cx="360" cy="212" r="18" fill="#62794a"/>
+    </symbol>
+
+    <!-- scene: atrium -->
+    <symbol id="sc-atrium" viewBox="0 0 400 280" preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="280" fill="url(#plasterGrad)"/>
+      <rect x="250" y="30" width="120" height="200" fill="url(#glassGrad)" stroke="#9a8a6f" stroke-width="4"/>
+      <line x1="310" y1="30" x2="310" y2="230" stroke="#9a8a6f" stroke-width="3"/><line x1="250" y1="110" x2="370" y2="110" stroke="#9a8a6f" stroke-width="3"/>
+      <g fill="#a9794a"><rect x="0" y="30" width="240" height="12"/><rect x="40" y="30" width="12" height="150"/><rect x="120" y="30" width="12" height="150"/><rect x="200" y="30" width="12" height="150"/></g>
+      <polygon points="0,210 400,210 400,280 0,280" fill="url(#woodGrad)"/>
+      <g stroke="#8f6a3f" stroke-width="1" opacity="0.5"><line x1="0" y1="236" x2="400" y2="236"/><line x1="0" y1="260" x2="400" y2="260"/></g>
+      <rect x="40" y="170" width="150" height="22" rx="6" fill="#ab9d84"/><rect x="40" y="186" width="150" height="30" rx="6" fill="#9a8c74"/>
+      <rect x="34" y="172" width="16" height="44" rx="5" fill="#8a7d66"/><rect x="180" y="172" width="16" height="44" rx="5" fill="#8a7d66"/>
+      <rect x="214" y="188" width="16" height="22" fill="#b98e58"/><circle cx="222" cy="178" r="16" fill="#6f8a4f"/>
+    </symbol>
+
+    <!-- detail textures -->
+    <symbol id="tx-wood" viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice">
+      <rect width="200" height="150" fill="url(#woodGradLite)"/>
+      <g fill="none" stroke="#9c7544" stroke-width="2" opacity="0.4"><path d="M0 30 q50 -8 100 0 t100 0"/><path d="M0 60 q50 8 100 0 t100 0"/><path d="M0 95 q50 -8 100 0 t100 0"/><path d="M0 125 q50 8 100 0 t100 0"/></g>
+      <g fill="#8a6238" opacity="0.32"><ellipse cx="60" cy="62" rx="5" ry="9"/><ellipse cx="150" cy="100" rx="4" ry="8"/></g>
+    </symbol>
+    <symbol id="tx-plaster" viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice">
+      <rect width="200" height="150" fill="url(#plasterGrad)"/>
+      <g fill="#d8cdb4" opacity="0.4"><circle cx="40" cy="40" r="3"/><circle cx="120" cy="30" r="2"/><circle cx="160" cy="80" r="3"/><circle cx="70" cy="100" r="2.5"/><circle cx="30" cy="120" r="2"/><circle cx="150" cy="120" r="2.5"/></g>
+      <g stroke="#cfc4aa" stroke-width="1" fill="none" opacity="0.45"><path d="M10 70 q40 -10 80 0"/><path d="M110 110 q30 8 70 -2"/></g>
+    </symbol>
+    <symbol id="tx-insul" viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice">
+      <rect width="200" height="150" fill="#efe9dc"/>
+      <rect x="20" y="8" width="22" height="134" fill="url(#woodGrad)"/>
+      <rect x="42" y="8" width="86" height="134" fill="#e7c46a" opacity="0.55"/>
+      <g stroke="#d6a93f" stroke-width="3" fill="none" opacity="0.8"><path d="M58 8 v134 M74 8 v134 M90 8 v134 M106 8 v134 M122 8 v134"/></g>
+      <rect x="42" y="8" width="6" height="134" fill="#b98e58"/><rect x="122" y="8" width="6" height="134" fill="#b98e58"/>
+      <rect x="128" y="8" width="22" height="134" fill="#e2dbc9" stroke="#cfc4aa"/>
+    </symbol>
+    <symbol id="tx-vent" viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice">
+      <rect width="200" height="150" fill="url(#plasterGrad)"/>
+      <polygon points="40,120 100,58 160,120" fill="none" stroke="#9c7544" stroke-width="3"/>
+      <line x1="50" y1="120" x2="150" y2="120" stroke="#9c7544" stroke-width="3"/>
+      <g stroke="#6f8a4f" stroke-width="3" fill="none" stroke-linecap="round"><path d="M100 134 v-22"/><path d="M93 118 l7 -9 7 9"/><path d="M68 110 q10 -22 31 -27"/><path d="M132 110 q-10 -22 -31 -27"/></g>
+      <circle cx="100" cy="84" r="4" fill="#6f8a4f"/>
+    </symbol>
+    <symbol id="tx-craft" viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice">
+      <rect width="200" height="150" fill="url(#woodGradLite)"/>
+      <g stroke="#9c7544" stroke-width="1.5" opacity="0.4"><line x1="0" y1="120" x2="200" y2="120"/><line x1="0" y1="134" x2="200" y2="134"/></g>
+      <polygon points="48,96 150,96 165,70 63,70" fill="#7a5836"/>
+      <rect x="92" y="50" width="26" height="22" rx="3" fill="#5f4427"/>
+      <polygon points="48,96 150,96 150,104 48,104" fill="#4f3a22"/>
+      <path d="M150 100 q24 -3 32 -17 q-15 6 -19 -2 q-2 13 -13 19" fill="#e7cfa3" stroke="#c9a86f" stroke-width="1.4"/>
+    </symbol>
+
+    <!-- portrait -->
+    <symbol id="ph-person" viewBox="0 0 200 220" preserveAspectRatio="xMidYMid slice">
+      <rect width="200" height="220" fill="url(#woodGradLite)"/>
+      <circle cx="100" cy="96" r="64" fill="#ece3d0" opacity="0.7"/>
+      <path d="M38 220 v-18 a62 62 0 0 1 124 0 v18 z" fill="#586c43"/>
+      <path d="M72 168 q28 22 56 0 l0 12 q-28 20 -56 0 z" fill="#6f8351"/>
+      <rect x="86" y="150" width="28" height="26" fill="#e6b98f"/>
+      <circle cx="100" cy="120" r="34" fill="#eec39a"/>
+      <path d="M66 120 a34 34 0 0 1 68 0 q-6 -13 -34 -13 t-34 13 z" fill="#3a2e22"/>
+      <rect x="63" y="101" width="74" height="9" rx="3" fill="#5e7140"/>
+      <circle cx="88" cy="122" r="2.6" fill="#3a2e22"/><circle cx="112" cy="122" r="2.6" fill="#3a2e22"/>
+      <path d="M88 134 q12 9 24 0" fill="none" stroke="#a9704a" stroke-width="2.4" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ Header ============ -->
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="田中建築 ホーム">
+      <svg class="logo"><use href="#ic-logo"/></svg>
+      <span class="name">田中建築<span class="en">TANAKA</span><small>四日市の大工の工務店</small></span>
+    </a>
+    <nav class="nav-links" aria-label="グローバルナビ">
+      <a href="#top">ホーム</a>
+      <a href="#commitment">家づくり</a>
+      <a href="#works">施工事例</a>
+      <a href="#services">リノベーション</a>
+      <a href="#company">会社案内</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="メニュー"><span></span></button>
+  </div>
+</header>
+
+<!-- ============ Hero ============ -->
+<section class="hero">
+  <div class="hero-bg"><svg viewBox="0 0 400 280" preserveAspectRatio="xMidYMid slice"><use href="#sc-exterior"/></svg></div>
+  <div class="wrap">
+    <h1>木とともに暮らす、<br>四日市の家づくり。</h1>
+    <p class="lead">自然素材をふんだんに使った注文住宅、高気密・高断熱の住まい、古民家リノベーション、耐震工事まで。三重県四日市に根ざした大工の工務店です。</p>
+    <div class="hero-btns">
+      <a class="btn btn-primary" href="#works">施工事例を見る<span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="#contact">無料相談はこちら<span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Features ============ -->
+<section class="sec features">
+  <div class="wrap">
+    <div class="features-grid">
+      <div class="feature"><div class="ic"><svg><use href="#ic-tree"/></svg></div><h3>自然素材の木の家</h3><p>無垢材や漆喰など、自然素材を活かした心地よい住まいをご提案します。</p></div>
+      <div class="feature"><div class="ic"><svg><use href="#ic-house"/></svg></div><h3>高気密・高断熱設計</h3><p>快適で省エネな暮らしを叶える、高気密・高断熱の住まいに。</p></div>
+      <div class="feature"><div class="ic"><svg><use href="#ic-hammer"/></svg></div><h3>職人の手仕事</h3><p>経験豊富な大工が、一棟一棟心を込めて丁寧につくり上げます。</p></div>
+      <div class="feature"><div class="ic"><svg><use href="#ic-people"/></svg></div><h3>地域密着・安心対応</h3><p>四日市市を中心に、きめ細やかな対応で長く寄り添います。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Services ============ -->
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="sec-title"><h2><span class="en">SERVICE</span>サービス紹介</h2><div class="bar"></div></div>
+    <div class="grid-4">
+      <div class="card"><div class="card-img"><svg><use href="#sc-exterior"/></svg></div><div class="card-body"><h3>注文住宅</h3><p>家族の想いをカタチにする、自由設計の注文住宅。</p><div class="card-link">詳しく見る<span class="arr">→</span></div></div></div>
+      <div class="card"><div class="card-img"><svg><use href="#sc-interior"/></svg></div><div class="card-body"><h3>高気密・高断熱住宅</h3><p>一年中快適で、省エネにも優れた住まい。</p><div class="card-link">詳しく見る<span class="arr">→</span></div></div></div>
+      <div class="card"><div class="card-img"><svg><use href="#sc-old"/></svg></div><div class="card-body"><h3>古民家リノベーション</h3><p>受け継がれた趣を活かし、新しい暮らしへ。</p><div class="card-link">詳しく見る<span class="arr">→</span></div></div></div>
+      <div class="card"><div class="card-img"><svg><use href="#sc-frame"/></svg></div><div class="card-body"><h3>耐震工事</h3><p>大切な住まいと家族を守る、耐震診断・補強工事。</p><div class="card-link">詳しく見る<span class="arr">→</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Works ============ -->
+<section class="sec works" id="works">
+  <div class="wrap">
+    <div class="sec-title"><h2><span class="en">WORKS</span>施工事例</h2><div class="bar"></div></div>
+    <div class="grid-3">
+      <div class="card work"><div class="card-img"><svg><use href="#sc-hiraya"/></svg></div><div class="card-body"><h3>やさしい光が差し込む平屋の家</h3><p>無垢材と漆喰の心地よさを活かした、自然とつながる平屋の住まい。</p><div class="card-link">詳しく見る<span class="arr">→</span></div></div></div>
+      <div class="card work"><div class="card-img"><svg><use href="#sc-atrium"/></svg></div><div class="card-body"><h3>吹き抜けが心地よい家</h3><p>家族がつながる吹き抜けリビングと、高気密・高断熱で快適な住まい。</p><div class="card-link">詳しく見る<span class="arr">→</span></div></div></div>
+      <div class="card work"><div class="card-img"><svg><use href="#sc-old"/></svg></div><div class="card-body"><h3>築80年の古民家再生</h3><p>古き良き趣を残しながら、現代の暮らしに合わせて再生。</p><div class="card-link">詳しく見る<span class="arr">→</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Stats ============ -->
+<section class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat"><div class="ic"><svg><use href="#ic-home"/></svg></div><div class="label">施工実績</div><div class="num">120<small>棟</small></div><div class="sub">（累計）</div></div>
+    <div class="stat"><div class="ic"><svg><use href="#ic-cal"/></svg></div><div class="label">四日市エリア対応</div><div class="num">20<small>年</small></div><div class="sub">以上</div></div>
+    <div class="stat"><div class="ic"><svg><use href="#ic-smile"/></svg></div><div class="label">相談満足度</div><div class="num">98<small>%</small></div><div class="sub">（自社調べ）</div></div>
+    <div class="stat"><div class="ic"><svg><use href="#ic-check"/></svg></div><div class="label">お引き渡し後の定期点検率</div><div class="num">100<small>%</small></div><div class="sub">&nbsp;</div></div>
+  </div>
+</section>
+
+<!-- ============ Commitment ============ -->
+<section class="sec" id="commitment">
+  <div class="wrap">
+    <div class="sec-title"><h2><span class="en">OUR COMMITMENT</span>家づくりのこだわり</h2><div class="bar"></div></div>
+    <div class="commit-grid">
+      <div class="commit"><div class="ph"><svg><use href="#tx-wood"/></svg></div><h3>無垢材</h3><p>足触りやさしく、年月とともに味わいが増す無垢材を使用します。</p></div>
+      <div class="commit"><div class="ph"><svg><use href="#tx-plaster"/></svg></div><h3>漆喰の壁</h3><p>調湿性・消臭性に優れ、空気をきれいに保つ漆喰を採用します。</p></div>
+      <div class="commit"><div class="ph"><svg><use href="#tx-insul"/></svg></div><h3>高性能断熱材</h3><p>高性能断熱材で、夏涼しく冬暖かい快適な住環境を実現します。</p></div>
+      <div class="commit"><div class="ph"><svg><use href="#tx-vent"/></svg></div><h3>通気設計</h3><p>家全体が呼吸する通気設計で、長持ちする住まいをつくります。</p></div>
+      <div class="commit"><div class="ph"><svg><use href="#tx-craft"/></svg></div><h3>丁寧な施工</h3><p>見えない部分まで丁寧に、職人の目と手でつくり上げます。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Company / message ============ -->
+<section class="sec company" id="company">
+  <div class="wrap">
+    <div class="msg-grid">
+      <div class="msg-img"><svg><use href="#ph-person"/></svg></div>
+      <div class="msg-body">
+        <h3>代表メッセージ</h3>
+        <p>家は、家族の暮らしを包み、未来をつくる大切な場所です。私たちは、自然素材と大工の手仕事にこだわり、住むほどに愛着が深まる家づくりを目指しています。四日市の気候や風土を知り尽くした地域の工務店として、これからも皆さまの暮らしに寄り添ってまいります。</p>
+        <div class="sign">代表　大工<b>田中 匠</b></div>
+      </div>
+      <div class="msg-img"><svg><use href="#sc-interior"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Consult ============ -->
+<section class="sec" id="contact">
+  <div class="wrap">
+    <div class="sec-title"><h2><span class="en">CONTACT</span>ご相談・ご案内</h2><div class="bar"></div></div>
+    <div class="consult-grid">
+      <div class="consult-card"><div class="ph"><svg><use href="#ph-person"/></svg></div><div><h3>家づくり相談会</h3><p>土地探しや資金計画など、家づくりのはじめの一歩をサポートします。</p><div class="card-link">詳しく見る<span class="arr">→</span></div></div></div>
+      <div class="consult-card"><div class="ph"><svg><use href="#sc-old"/></svg></div><div><h3>古民家診断</h3><p>古民家の状態を調査し、活かす方法をご提案します。</p><div class="card-link">詳しく見る<span class="arr">→</span></div></div></div>
+      <div class="consult-card"><div class="ph"><svg><use href="#sc-frame"/></svg></div><div><h3>耐震相談</h3><p>耐震診断や補強工事のご相談を承ります。</p><div class="card-link">詳しく見る<span class="arr">→</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA band ============ -->
+<section class="cta">
+  <div class="wrap cta-inner">
+    <div class="cta-left">
+      <div class="ic"><svg><use href="#ic-phone"/></svg></div>
+      <div>
+        <h3>まずはお気軽にご相談ください</h3>
+        <p>無料相談・お見積もりは無料です。しつこい営業は一切いたしません。</p>
+      </div>
+    </div>
+    <a class="btn btn-primary" href="#contact">無料相談・お問い合わせ<span class="arr">→</span></a>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand">
+          <svg class="logo" style="width:38px;height:38px"><use href="#ic-logo"/></svg>
+          <span class="name">田中建築<small>四日市の大工の工務店</small></span>
+        </div>
+        <div class="footer-info">
+          〒510-0954　三重県四日市市小古曽町2568<br>
+          TEL：059-000-0000　FAX：059-000-0000<br>
+          営業時間 8:00〜18:00／定休日 日曜・祝日
+        </div>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg><use href="#ic-ig"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg><use href="#ic-yt"/></svg></a>
+        </div>
+      </div>
+      <nav class="footer-nav" aria-label="フッターナビ">
+        <ul>
+          <li><a href="#top">ホーム</a></li>
+          <li><a href="#commitment">家づくり</a></li>
+          <li><a href="#works">施工事例</a></li>
+        </ul>
+        <ul>
+          <li><a href="#services">リノベーション</a></li>
+          <li><a href="#company">会社案内</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 田中建築</span>
+      <a class="to-top" href="#top" aria-label="ページ上部へ">↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var t=document.getElementById('navToggle');
+    if(t){t.addEventListener('click',function(){document.body.classList.toggle('nav-open');});}
+    document.querySelectorAll('.nav-links a').forEach(function(a){
+      a.addEventListener('click',function(){document.body.classList.remove('nav-open');});
+    });
+  })();
+</script>
+</body>
+</html>

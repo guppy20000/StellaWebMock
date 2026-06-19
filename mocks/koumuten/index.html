@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>〇〇工務店｜自然素材の木の家・注文住宅｜大工の工務店</title>
+<meta name="description" content="自然素材をふんだんに使った注文住宅、高気密・高断熱の住まい、古民家リノベーション・耐震工事まで。地域に根ざした大工の工務店です。" />
+<!--
+  ============================================================
+  汎用 工務店テンプレート（見本サイト / StellaWebMock）
+  会社名・住所などは「〇〇」プレースホルダにしています。
+  差し替え箇所は「EDIT:」コメントを目印にしてください。
+  配色は :root の CSS 変数を変えるだけで一括変更できます。
+  画像は外部依存なし（CSSグラデーション＋インラインSVG）。
+  ============================================================
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#4e6b3f;        /* メインのオリーブグリーン */
+    --green-d:#3e5631;
+    --green-deep:#33472a;
+    --ink:#2f2d27;          /* 見出し文字 */
+    --body:#564f44;         /* 本文 */
+    --muted:#8c8576;
+    --cream:#f7f3ea;        /* セクション背景 */
+    --cream-2:#efe7d6;      /* カード背景 */
+    --line:#e4ddcc;
+    --paper:#ffffff;
+    --wood-1:#cdab77;
+    --wood-2:#ab8650;
+    --wood-3:#7e5f36;
+    --sky-1:#9fb6c4;
+    --sky-2:#c7d2cb;
+    --radius:14px;
+    --shadow:0 18px 40px -24px rgba(51,45,30,.45);
+    --shadow-sm:0 10px 26px -18px rgba(51,45,30,.5);
+    --container:1120px;
+    --serif:"Noto Serif JP",serif;
+    --sans:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;font-family:var(--sans);color:var(--body);
+    background:var(--paper);line-height:1.85;font-size:16px;
+    -webkit-font-smoothing:antialiased;letter-spacing:.02em;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3,h4{font-family:var(--serif);color:var(--ink);font-weight:600;line-height:1.5;margin:0;}
+  .container{max-width:var(--container);margin:0 auto;padding:0 24px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:.6em;font-weight:700;font-size:.95rem;
+    padding:.95em 1.7em;border-radius:999px;transition:.25s;cursor:pointer;border:1.5px solid transparent;
+  }
+  .btn .arw{transition:transform .25s;}
+  .btn:hover .arw{transform:translateX(4px);}
+  .btn-primary{background:var(--green);color:#fff;box-shadow:0 12px 24px -14px rgba(78,107,63,.9);}
+  .btn-primary:hover{background:var(--green-d);}
+  .btn-ghost{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.7);backdrop-filter:blur(2px);}
+  .btn-ghost:hover{background:rgba(255,255,255,.92);color:var(--green-d);border-color:#fff;}
+  .btn-outline{background:transparent;color:var(--green-d);border-color:var(--green);}
+  .btn-outline:hover{background:var(--green);color:#fff;}
+
+  /* ---------- 共通：セクション見出し ---------- */
+  .sec{padding:84px 0;}
+  .sec-head{text-align:center;margin-bottom:48px;}
+  .sec-head .en{display:block;font-family:var(--serif);letter-spacing:.32em;font-size:.72rem;color:var(--green);font-weight:600;text-transform:uppercase;margin-bottom:10px;}
+  .sec-head h2{font-size:clamp(1.55rem,3.4vw,2.1rem);letter-spacing:.06em;}
+  .sec-head h2::after{content:"";display:block;width:44px;height:3px;background:var(--green);border-radius:3px;margin:18px auto 0;}
+
+  /* ---------- ヘッダー ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;gap:18px;height:74px;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .mark{width:42px;height:42px;flex:none;}
+  .brand .name{font-family:var(--serif);font-weight:700;font-size:1.2rem;color:var(--ink);letter-spacing:.08em;line-height:1.2;}
+  .brand .roman{font-size:.6rem;letter-spacing:.22em;color:var(--muted);}
+  .brand .tagline{margin-left:8px;padding-left:14px;border-left:1px solid var(--line);font-size:.74rem;color:var(--muted);}
+  nav.menu{margin-left:auto;display:flex;align-items:center;gap:26px;}
+  nav.menu a{font-size:.86rem;font-weight:500;color:var(--ink);position:relative;padding:6px 0;}
+  nav.menu a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--green);transition:.25s;}
+  nav.menu a:hover::after{width:100%;}
+  nav.menu a.cta{background:var(--green);color:#fff;padding:.55em 1.2em;border-radius:999px;}
+  nav.menu a.cta::after{display:none;}
+  nav.menu a.cta:hover{background:var(--green-d);}
+  .burger{display:none;margin-left:auto;width:44px;height:44px;border:1px solid var(--line);border-radius:10px;background:#fff;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;}
+  .burger span{width:20px;height:2px;background:var(--ink);transition:.25s;}
+
+  /* ---------- ヒーロー ---------- */
+  .hero{position:relative;min-height:600px;display:flex;align-items:center;overflow:hidden;
+    background:linear-gradient(180deg,#9db4c3 0%,#b9c8c6 38%,#d7d2bf 100%);}
+  .hero .scene{position:absolute;inset:0;width:100%;height:100%;}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(95deg,rgba(35,46,28,.62) 0%,rgba(35,46,28,.30) 42%,rgba(35,46,28,0) 70%);}
+  .hero .container{position:relative;z-index:2;padding-top:70px;padding-bottom:70px;}
+  .hero-copy{max-width:560px;color:#fff;}
+  .hero-copy h1{color:#fff;font-size:clamp(2rem,5.4vw,3.3rem);line-height:1.42;letter-spacing:.04em;text-shadow:0 2px 18px rgba(20,30,15,.4);}
+  .hero-copy p{margin:24px 0 32px;font-size:1rem;line-height:2;text-shadow:0 1px 10px rgba(20,30,15,.4);}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;}
+
+  /* ---------- 特長カード（4列） ---------- */
+  .features{background:var(--cream);padding:64px 0;}
+  .feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .feat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:34px 26px;text-align:center;box-shadow:var(--shadow-sm);transition:.3s;}
+  .feat:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+  .feat .ic{width:60px;height:60px;margin:0 auto 18px;color:var(--green);}
+  .feat h3{font-size:1.12rem;letter-spacing:.04em;margin-bottom:12px;}
+  .feat p{font-size:.86rem;color:var(--body);line-height:1.9;margin:0;}
+
+  /* ---------- サービス（4列・画像付き） ---------- */
+  .services{background:#fff;}
+  .card-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .pcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:.3s;display:flex;flex-direction:column;}
+  .pcard:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+  .pcard .ph{aspect-ratio:4/3;position:relative;}
+  .pcard .body{padding:20px 20px 22px;display:flex;flex-direction:column;flex:1;}
+  .pcard h3{font-size:1.05rem;margin-bottom:9px;letter-spacing:.04em;}
+  .pcard p{font-size:.82rem;margin:0 0 14px;color:var(--body);line-height:1.85;}
+  .more{margin-top:auto;font-size:.8rem;font-weight:700;color:var(--green);display:inline-flex;align-items:center;gap:.5em;}
+  .pcard:hover .more .arw{transform:translateX(4px);}
+  .more .arw{transition:transform .25s;}
+
+  /* ---------- 施工事例（3列） ---------- */
+  .works{background:var(--cream);}
+  .card-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+
+  /* 画像プレースホルダ（木の質感グラデ＋アイコン） */
+  .ph{background:linear-gradient(135deg,var(--wood-1),var(--wood-2) 55%,var(--wood-3));display:flex;align-items:center;justify-content:center;}
+  .ph.alt1{background:linear-gradient(135deg,#d9c39a,#b89a6a 60%,#8c6c3f);}
+  .ph.alt2{background:linear-gradient(135deg,#c9b48c,#9a7c4f 55%,#6f5230);}
+  .ph.green{background:linear-gradient(135deg,#7f9468,#5b7544 60%,#3f5730);}
+  .ph .pic{width:46%;max-width:120px;color:rgba(255,255,255,.82);}
+  .ph::before{content:"";position:absolute;inset:0;background:
+     repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 2px,transparent 2px 26px);
+     mix-blend-mode:overlay;opacity:.5;}
+
+  /* ---------- 数字で見る信頼（緑帯） ---------- */
+  .stats{background:var(--green);color:#fff;padding:70px 0;position:relative;}
+  .stats::before{content:"";position:absolute;inset:0;opacity:.18;background:
+     radial-gradient(circle at 18% 30%,rgba(255,255,255,.5),transparent 38%),
+     radial-gradient(circle at 82% 70%,rgba(255,255,255,.35),transparent 40%);}
+  .stats .sec-head{position:relative;margin-bottom:40px;}
+  .stats .sec-head h2{color:#fff;}
+  .stats .sec-head h2::after{background:rgba(255,255,255,.8);}
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;position:relative;}
+  .stat{text-align:center;padding:10px;position:relative;}
+  .stat + .stat::before{content:"";position:absolute;left:0;top:18%;height:64%;width:1px;background:rgba(255,255,255,.28);}
+  .stat .ic{width:46px;height:46px;margin:0 auto 12px;color:rgba(255,255,255,.92);}
+  .stat .lbl{font-size:.8rem;letter-spacing:.08em;opacity:.92;}
+  .stat .num{font-family:var(--serif);font-weight:700;font-size:clamp(2.2rem,5vw,3rem);line-height:1.1;margin:2px 0;}
+  .stat .num small{font-size:1rem;font-weight:600;margin-left:2px;}
+  .stat .sub{font-size:.72rem;opacity:.82;}
+
+  /* ---------- 家づくりのこだわり（5列） ---------- */
+  .commit{background:#fff;}
+  .commit-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;}
+  .citem{text-align:center;}
+  .citem .circle{width:120px;height:120px;border-radius:50%;margin:0 auto 16px;position:relative;overflow:hidden;box-shadow:var(--shadow-sm);}
+  .citem .circle .pic{width:50%;color:rgba(255,255,255,.9);}
+  .citem h3{font-size:1rem;margin-bottom:8px;letter-spacing:.04em;}
+  .citem p{font-size:.78rem;margin:0;color:var(--body);line-height:1.8;}
+
+  /* ---------- 代表メッセージ ---------- */
+  .message{background:var(--cream);}
+  .msg-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;}
+  .msg-text .en{display:block;font-family:var(--serif);letter-spacing:.3em;font-size:.7rem;color:var(--green);margin-bottom:10px;}
+  .msg-text h2{font-size:clamp(1.4rem,3vw,1.9rem);margin-bottom:22px;letter-spacing:.05em;}
+  .msg-text p{font-size:.92rem;line-height:2.05;margin:0 0 22px;}
+  .sign{font-family:var(--serif);color:var(--ink);font-size:1.05rem;letter-spacing:.08em;}
+  .sign small{display:block;font-family:var(--sans);font-size:.74rem;color:var(--muted);letter-spacing:.1em;margin-bottom:4px;}
+  .msg-media{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .msg-media .ph{border-radius:var(--radius);box-shadow:var(--shadow-sm);}
+  .msg-media .portrait{aspect-ratio:3/4;}
+  .msg-media .work{aspect-ratio:3/4;margin-top:30px;}
+
+  /* ---------- ご相談・ご案内（3列） ---------- */
+  .guide{background:#fff;}
+
+  /* ---------- CTA 帯 ---------- */
+  .cta{background:linear-gradient(120deg,var(--green-d),var(--green));color:#fff;padding:56px 0;position:relative;overflow:hidden;}
+  .cta::before{content:"";position:absolute;inset:0;opacity:.16;background:radial-gradient(circle at 85% 20%,rgba(255,255,255,.6),transparent 45%);}
+  .cta-wrap{position:relative;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;}
+  .cta .tel-ic{width:54px;height:54px;flex:none;color:rgba(255,255,255,.85);}
+  .cta-txt h2{color:#fff;font-size:clamp(1.4rem,3.2vw,1.95rem);letter-spacing:.05em;}
+  .cta-txt p{margin:8px 0 0;font-size:.86rem;opacity:.92;}
+  .cta .btn-ghost{background:#fff;color:var(--green-d);border-color:#fff;white-space:nowrap;}
+  .cta .btn-ghost:hover{background:var(--cream);}
+
+  /* ---------- フッター ---------- */
+  footer{background:#23271f;color:#cfcabb;font-size:.84rem;}
+  .foot-main{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;padding:58px 0 40px;}
+  .foot-brand .name{font-family:var(--serif);font-size:1.25rem;color:#fff;letter-spacing:.1em;}
+  .foot-brand .roman{font-size:.6rem;letter-spacing:.24em;color:#9a9588;margin-bottom:16px;}
+  .foot-brand .mark{margin-bottom:12px;color:#a9c08f;}
+  .foot-brand address{font-style:normal;line-height:1.95;font-size:.8rem;color:#b6b1a3;}
+  .foot-col h4{color:#fff;font-size:.82rem;letter-spacing:.1em;margin-bottom:14px;font-family:var(--sans);font-weight:700;}
+  .foot-col a{display:block;padding:5px 0;color:#b6b1a3;font-size:.8rem;transition:.2s;}
+  .foot-col a:hover{color:#fff;}
+  .socials{display:flex;gap:12px;margin-top:18px;}
+  .socials a{width:38px;height:38px;border:1px solid #444a3c;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#cfcabb;transition:.25s;}
+  .socials a:hover{background:var(--green);border-color:var(--green);color:#fff;}
+  .foot-bottom{border-top:1px solid #363b2d;padding:18px 0;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;}
+  .foot-bottom small{color:#8f8b7d;font-size:.72rem;letter-spacing:.04em;}
+  .totop{width:42px;height:42px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;color:#fff;transition:.25s;}
+  .totop:hover{background:var(--green-d);transform:translateY(-3px);}
+
+  /* ---------- スクロール演出 ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ---------- レスポンシブ ---------- */
+  @media(max-width:980px){
+    .feat-grid{grid-template-columns:repeat(2,1fr);}
+    .card-grid-4{grid-template-columns:repeat(2,1fr);}
+    .commit-grid{grid-template-columns:repeat(3,1fr);}
+    .msg-wrap{grid-template-columns:1fr;gap:34px;}
+    .msg-media{max-width:440px;}
+    .foot-main{grid-template-columns:1fr 1fr;}
+    .foot-brand{grid-column:1 / -1;}
+  }
+  @media(max-width:720px){
+    .brand .tagline{display:none;}
+    nav.menu{position:absolute;top:74px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);
+      flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 18px;box-shadow:var(--shadow);
+      transform:translateY(-12px);opacity:0;pointer-events:none;transition:.25s;}
+    nav.menu.open{transform:none;opacity:1;pointer-events:auto;}
+    nav.menu a{padding:13px 0;border-bottom:1px solid var(--line);}
+    nav.menu a.cta{text-align:center;margin-top:10px;border:none;}
+    .burger{display:flex;}
+    .sec{padding:60px 0;}
+    .card-grid-3{grid-template-columns:1fr;}
+    .stat-grid{grid-template-columns:repeat(2,1fr);gap:26px 0;}
+    .stat:nth-child(odd)::before{display:none;}
+    .commit-grid{grid-template-columns:repeat(2,1fr);}
+    .cta-wrap{flex-direction:column;text-align:center;}
+    .foot-main{grid-template-columns:1fr;gap:28px;text-align:left;}
+  }
+  @media(max-width:460px){
+    .feat-grid,.card-grid-4{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ ヘッダー ============ -->
+<header>
+  <div class="container nav">
+    <a href="#top" class="brand" aria-label="トップへ">
+      <!-- 木のロゴマーク -->
+      <svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+        <circle cx="50" cy="50" r="47" stroke="var(--green)" stroke-width="3"/>
+        <path d="M50 20 L67 46 H57 L70 66 H56 V80 H44 V66 H30 L43 46 H33 Z" fill="var(--green)"/>
+      </svg>
+      <span>
+        <!-- EDIT: 会社名 -->
+        <span class="name">〇〇工務店</span>
+        <span class="roman">KOUMUTEN</span>
+      </span>
+      <span class="tagline">地域に根ざした大工の工務店</span>
+    </a>
+    <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+    <nav class="menu" id="menu">
+      <a href="#top">ホーム</a>
+      <a href="#service">家づくり</a>
+      <a href="#works">施工事例</a>
+      <a href="#commit">こだわり</a>
+      <a href="#message">会社案内</a>
+      <a href="#contact" class="cta">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ ヒーロー ============ -->
+  <section class="hero">
+    <!-- 背景イラスト（空・山並み・木の家） -->
+    <svg class="scene" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#9db4c3"/><stop offset="1" stop-color="#cdd5c8"/>
+        </linearGradient>
+        <linearGradient id="wood" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#c8a576"/><stop offset="1" stop-color="#8c6a3e"/>
+        </linearGradient>
+      </defs>
+      <rect width="1440" height="600" fill="url(#sky)"/>
+      <circle cx="1140" cy="120" r="60" fill="#fbf3df" opacity=".7"/>
+      <path d="M0 360 Q260 300 520 350 T1080 340 T1440 360 V600 H0 Z" fill="#8fa07e" opacity=".55"/>
+      <path d="M0 430 Q320 380 680 420 T1440 420 V600 H0 Z" fill="#6f865c" opacity=".6"/>
+      <!-- 木の家 -->
+      <g transform="translate(820,250)">
+        <rect x="0" y="60" width="360" height="190" fill="url(#wood)"/>
+        <path d="M-24 70 L180 -30 L384 70 Z" fill="#7e5f37"/>
+        <rect x="40" y="110" width="90" height="120" fill="#3f4b3a" opacity=".75"/>
+        <rect x="160" y="110" width="150" height="80" fill="#cfe0e6" opacity=".85"/>
+        <rect x="160" y="200" width="150" height="50" fill="#5a4a30" opacity=".5"/>
+      </g>
+      <path d="M0 470 Q360 440 720 470 T1440 470 V600 H0 Z" fill="#566b46"/>
+      <g fill="#48592f">
+        <path d="M120 470 l28 -60 28 60z"/><path d="M150 470 l34 -78 34 78z"/>
+        <path d="M250 478 l24 -52 24 52z"/>
+      </g>
+    </svg>
+    <div class="container">
+      <div class="hero-copy reveal">
+        <h1>木とともに暮らす、<br>心地よい家づくり。</h1>
+        <p>自然素材をふんだんに使った注文住宅、高気密・高断熱の住まい、古民家リノベーション・耐震工事まで。地域に根ざした大工の工務店です。</p>
+        <div class="hero-actions">
+          <a href="#works" class="btn btn-primary">施工事例を見る <span class="arw">→</span></a>
+          <a href="#contact" class="btn btn-ghost">無料相談はこちら <span class="arw">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 特長カード ============ -->
+  <section class="features">
+    <div class="container">
+      <div class="feat-grid">
+        <div class="feat reveal">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 17 11h-3l4 6H8l4-6H6z"/><path d="M12 17v4"/></svg>
+          <h3>自然素材の木の家</h3>
+          <p>無垢材や漆喰など、自然素材を活かした心地よい住まいをご提案します。</p>
+        </div>
+        <div class="feat reveal">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 11 12 4l8 7"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg>
+          <h3>高気密・高断熱設計</h3>
+          <p>快適で省エネな暮らしを叶える、高気密・高断熱の住まいを実現します。</p>
+        </div>
+        <div class="feat reveal">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m14 6 4 4-8 8-4-4z"/><path d="m15 5 4 4 2-2-4-4z"/><path d="m6 14-2 6 6-2"/></svg>
+          <h3>職人の手仕事</h3>
+          <p>経験豊富な大工職人が、一棟一棟心を込めて丁寧につくり上げます。</p>
+        </div>
+        <div class="feat reveal">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 19c0-3 2.7-5 6-5s6 2 6 5"/><path d="M15 14c2.6 0 4.5 1.7 4.5 4"/></svg>
+          <h3>地域密着・安心対応</h3>
+          <p>地域に密着し、迅速できめ細やかな対応で末永く寄り添います。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ サービス紹介 ============ -->
+  <section class="sec services" id="service">
+    <div class="container">
+      <div class="sec-head reveal"><span class="en">Service</span><h2>サービス紹介</h2></div>
+      <div class="card-grid-4">
+        <article class="pcard reveal">
+          <div class="ph"><svg class="pic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M10 30 32 12l22 18"/><path d="M15 28v22h34V28"/><path d="M27 50V36h10v14"/></svg></div>
+          <div class="body"><h3>注文住宅</h3><p>家族の想いをカタチにする、自由設計の注文住宅。</p><span class="more">詳しく見る <span class="arw">→</span></span></div>
+        </article>
+        <article class="pcard reveal">
+          <div class="ph alt1"><svg class="pic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="12" y="14" width="40" height="36" rx="2"/><path d="M12 32h40M32 14v36"/><circle cx="32" cy="32" r="6"/></svg></div>
+          <div class="body"><h3>高気密・高断熱住宅</h3><p>一年中快適で、省エネにも優れた住宅。</p><span class="more">詳しく見る <span class="arw">→</span></span></div>
+        </article>
+        <article class="pcard reveal">
+          <div class="ph alt2"><svg class="pic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M14 50V24l18-12 18 12v26"/><path d="M24 50V34h16v16"/><path d="M14 24h36"/></svg></div>
+          <div class="body"><h3>古民家リノベーション</h3><p>受け継がれた趣を活かし、新しい暮らしへ。</p><span class="more">詳しく見る <span class="arw">→</span></span></div>
+        </article>
+        <article class="pcard reveal">
+          <div class="ph green"><svg class="pic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M32 8l20 7v13c0 13-9 21-20 28C21 49 12 41 12 28V15z"/><path d="M24 31l6 6 11-12"/></svg></div>
+          <div class="body"><h3>耐震工事</h3><p>大切な住まいと家族を守る耐震診断・補強工事。</p><span class="more">詳しく見る <span class="arw">→</span></span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 施工事例 ============ -->
+  <section class="sec works" id="works">
+    <div class="container">
+      <div class="sec-head reveal"><span class="en">Works</span><h2>施工事例</h2></div>
+      <div class="card-grid-3">
+        <article class="pcard reveal">
+          <div class="ph" style="aspect-ratio:16/10"><svg class="pic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 40 32 22l26 18"/><path d="M12 38v14h40V38"/><path d="M22 22l4-8M32 18l0-8M42 22l-4-8"/></svg></div>
+          <div class="body"><h3>やさしい光が差し込む平屋の家</h3><p>無垢材と漆喰の心地よさを活かした、自然とつながる平屋の住まい。</p><span class="more">詳しく見る <span class="arw">→</span></span></div>
+        </article>
+        <article class="pcard reveal">
+          <div class="ph alt1" style="aspect-ratio:16/10"><svg class="pic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 52V20l22-12 22 12v32"/><path d="M22 52V30h20v22"/><path d="M32 8v44"/></svg></div>
+          <div class="body"><h3>吹き抜けが心地よい家</h3><p>家族がつながる吹き抜けリビングと、高断熱で快適な住まい。</p><span class="more">詳しく見る <span class="arw">→</span></span></div>
+        </article>
+        <article class="pcard reveal">
+          <div class="ph alt2" style="aspect-ratio:16/10"><svg class="pic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M8 50V26l24-14 24 14v24"/><path d="M8 26h48"/><path d="M20 50V36h10v14M40 50V36h6"/></svg></div>
+          <div class="body"><h3>築80年の古民家再生</h3><p>古き良き趣を残しながら、現代の暮らしに合わせて再生。</p><span class="more">詳しく見る <span class="arw">→</span></span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 数字で見る信頼 ============ -->
+  <section class="stats">
+    <div class="container">
+      <div class="sec-head reveal"><h2>数字で見る信頼</h2></div>
+      <div class="stat-grid">
+        <div class="stat reveal">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 11 12 4l8 7"/><path d="M6 10v9h12v-9"/></svg>
+          <div class="lbl">施工実績</div><div class="num">120<small>棟</small></div><div class="sub">（累計）</div>
+        </div>
+        <div class="stat reveal">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 9h16M8 3v4M16 3v4"/></svg>
+          <div class="lbl">地域対応</div><div class="num">20<small>年</small></div><div class="sub">以上</div>
+        </div>
+        <div class="stat reveal">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M8 10h.01M16 10h.01M8 15c1 1.3 2.4 2 4 2s3-.7 4-2"/></svg>
+          <div class="lbl">相談満足度</div><div class="num">98<small>%</small></div><div class="sub">（自社調べ）</div>
+        </div>
+        <div class="stat reveal">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 19c0-3 2.7-5 6-5s6 2 6 5"/><path d="M15 14c2.6 0 4.5 1.7 4.5 4"/></svg>
+          <div class="lbl">定期点検率</div><div class="num">100<small>%</small></div><div class="sub">お引き渡し後</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 家づくりのこだわり ============ -->
+  <section class="sec commit" id="commit">
+    <div class="container">
+      <div class="sec-head reveal"><span class="en">Commitment</span><h2>家づくりのこだわり</h2></div>
+      <div class="commit-grid">
+        <div class="citem reveal">
+          <div class="circle ph"><svg class="pic" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 30c8-2 16-12 28-22M10 32c6-1 12-7 22-16"/></svg></div>
+          <h3>無垢材</h3><p>足触りやさしく、年とともに味わいが増す無垢材を使用します。</p>
+        </div>
+        <div class="citem reveal">
+          <div class="circle ph alt1"><svg class="pic" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="9" width="26" height="22" rx="2"/><path d="M7 17h26M16 9v22"/></svg></div>
+          <h3>漆喰の壁</h3><p>調湿性・消臭性に優れ、空気をきれいに保つ漆喰を採用します。</p>
+        </div>
+        <div class="citem reveal">
+          <div class="circle ph alt2"><svg class="pic" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12h24v16H8z"/><path d="M8 18h24M8 24h24M14 12v16M26 12v16" opacity=".7"/></svg></div>
+          <h3>高性能断熱材</h3><p>高性能断熱材で、夏涼しく冬暖かい快適な住環境を実現します。</p>
+        </div>
+        <div class="citem reveal">
+          <div class="circle ph green"><svg class="pic" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 16c6-6 12 6 18 0s10 2 10 2M6 26c6-6 12 6 18 0s10 2 10 2"/></svg></div>
+          <h3>通気設計</h3><p>家全体が呼吸する通気設計で、長持ちする住まいをつくります。</p>
+        </div>
+        <div class="citem reveal">
+          <div class="circle ph"><svg class="pic" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="m20 8 4 4-10 10-4-4z"/><path d="m22 6 4 4 3-3-4-4z"/><path d="m10 22-2 8 8-2"/></svg></div>
+          <h3>丁寧な施工</h3><p>見えない部分まで丁寧に、職人の目と手でつくり上げます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 代表メッセージ ============ -->
+  <section class="sec message" id="message">
+    <div class="container">
+      <div class="msg-wrap">
+        <div class="msg-text reveal">
+          <span class="en">Message</span>
+          <h2>代表メッセージ</h2>
+          <p>家は、家族の暮らしを包み、未来をつくる大切な場所です。私たちは、自然素材と大工の手仕事にこだわり、住むほどに愛着が深まる家づくりを目指しています。地域の気候や風土を知り尽くした工務店として、これからも皆さまの暮らしに寄り添ってまいります。</p>
+          <!-- EDIT: 代表者名 -->
+          <p class="sign"><small>代表 大工</small>〇〇　〇〇</p>
+        </div>
+        <div class="msg-media reveal">
+          <div class="ph portrait green"><svg class="pic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="32" cy="24" r="11"/><path d="M12 56c0-11 9-18 20-18s20 7 20 18"/></svg></div>
+          <div class="ph work"><svg class="pic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m38 14 8 8-18 18-8-8z"/><path d="m40 12 8 8 4-4-8-8z"/><path d="m18 32-4 14 14-4"/></svg></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ご相談・ご案内 ============ -->
+  <section class="sec guide">
+    <div class="container">
+      <div class="sec-head reveal"><span class="en">Information</span><h2>ご相談・ご案内</h2></div>
+      <div class="card-grid-3">
+        <article class="pcard reveal">
+          <div class="ph alt1" style="aspect-ratio:16/9"><svg class="pic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="24" cy="22" r="7"/><circle cx="42" cy="24" r="6"/><path d="M10 48c0-7 6-12 14-12s14 5 14 12M40 48c0-6 4-10 10-10"/></svg></div>
+          <div class="body"><h3>家づくり相談会</h3><p>土地探しや資金計画など、家づくりのはじめの一歩をサポートします。</p><span class="more">詳しく見る <span class="arw">→</span></span></div>
+        </article>
+        <article class="pcard reveal">
+          <div class="ph alt2" style="aspect-ratio:16/9"><svg class="pic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 50V26l20-12 20 12v24"/><path d="M12 26h40"/><circle cx="30" cy="34" r="7"/><path d="m35 39 6 6"/></svg></div>
+          <div class="body"><h3>古民家診断</h3><p>古民家の状態を調査し、活かす方法をご提案します。</p><span class="more">詳しく見る <span class="arw">→</span></span></div>
+        </article>
+        <article class="pcard reveal">
+          <div class="ph green" style="aspect-ratio:16/9"><svg class="pic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M32 8l20 7v13c0 13-9 21-20 28C21 49 12 41 12 28V15z"/><path d="M24 31l6 6 11-12"/></svg></div>
+          <div class="body"><h3>耐震相談</h3><p>耐震診断や補強工事のご相談を承ります。</p><span class="more">詳しく見る <span class="arw">→</span></span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA 帯 ============ -->
+  <section class="cta" id="contact">
+    <div class="container cta-wrap">
+      <svg class="tel-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h3l2 5-2.5 1.5a12 12 0 0 0 6 6L17 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 1-2z"/></svg>
+      <div class="cta-txt">
+        <h2>まずはお気軽にご相談ください</h2>
+        <p>ご相談・お見積りは無料です。しつこい営業は一切いたしません。</p>
+      </div>
+      <a href="#contact" class="btn btn-ghost">無料相談・お問い合わせ <span class="arw">→</span></a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ フッター ============ -->
+<footer>
+  <div class="container foot-main">
+    <div class="foot-brand">
+      <svg class="mark" width="40" height="40" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+        <circle cx="50" cy="50" r="47" stroke="currentColor" stroke-width="3"/>
+        <path d="M50 20 L67 46 H57 L70 66 H56 V80 H44 V66 H30 L43 46 H33 Z" fill="currentColor"/>
+      </svg>
+      <!-- EDIT: 会社名・読み -->
+      <div class="name">〇〇工務店</div>
+      <div class="roman">KOUMUTEN</div>
+      <!-- EDIT: 住所・連絡先 -->
+      <address>
+        〇〇〇〇株式会社（〇〇こうむてん）<br>
+        〒000-0000　〇〇県〇〇市〇〇町0-0-0<br>
+        TEL 000-000-0000　FAX 000-000-0000<br>
+        営業時間 8:00–18:00／定休日 日曜・祝日
+      </address>
+    </div>
+    <div class="foot-col">
+      <h4>家づくり</h4>
+      <a href="#service">注文住宅</a>
+      <a href="#service">高気密・高断熱住宅</a>
+      <a href="#service">古民家リノベーション</a>
+      <a href="#service">耐震工事</a>
+    </div>
+    <div class="foot-col">
+      <h4>メニュー</h4>
+      <a href="#works">施工事例</a>
+      <a href="#commit">家づくりのこだわり</a>
+      <a href="#message">会社案内</a>
+      <a href="#contact">お問い合わせ</a>
+      <div class="socials">
+        <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="6" width="18" height="12" rx="4"/><path d="M11 9.5v5l4-2.5z" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="container foot-bottom">
+    <small>© <span id="year"></span> 〇〇工務店 All Rights Reserved.</small>
+    <a href="#top" class="totop" aria-label="トップへ戻る"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 14 6-6 6 6"/></svg></a>
+  </div>
+</footer>
+
+<script>
+  // モバイルメニュー
+  const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+  burger.addEventListener('click',()=>menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+  // 年号
+  document.getElementById('year').textContent=new Date().getFullYear();
+  // スクロール演出
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

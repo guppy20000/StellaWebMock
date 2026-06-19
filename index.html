@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>StellaWebMock｜見本サイト一覧</title>
+<style>
+  :root{--ink:#1f2330;--muted:#6b7184;--line:#e6e8ef;--accent:#4e6b3f;--bg:#f6f7fb;}
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.8;}
+  header{background:#fff;border-bottom:1px solid var(--line);}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+  header .wrap{padding:22px 24px;}
+  .logo{font-weight:800;font-size:1.15rem;letter-spacing:.04em;}
+  .logo span{color:var(--accent);}
+  .sub{color:var(--muted);font-size:.84rem;margin-top:2px;}
+  main{padding:40px 0 80px;}
+  h1{font-size:1.1rem;letter-spacing:.04em;margin:0 0 6px;}
+  .lead{color:var(--muted);font-size:.88rem;margin:0 0 28px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.25s;display:flex;flex-direction:column;}
+  .card:hover{transform:translateY(-4px);box-shadow:0 18px 36px -22px rgba(31,35,48,.4);border-color:#d3d7e3;}
+  .thumb{aspect-ratio:16/10;background:linear-gradient(135deg,#cdab77,#7e5f36);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.85);}
+  .thumb svg{width:42%;}
+  .card .b{padding:18px 18px 20px;}
+  .tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.06em;color:var(--accent);background:#eef2e9;padding:3px 10px;border-radius:999px;margin-bottom:10px;}
+  .card h2{font-size:1rem;margin:0 0 4px;}
+  .card p{font-size:.8rem;color:var(--muted);margin:0 0 14px;}
+  .open{font-size:.8rem;font-weight:700;color:var(--accent);}
+  footer{border-top:1px solid var(--line);color:var(--muted);font-size:.74rem;}
+  footer .wrap{padding:18px 24px;}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="logo">Stella<span>WebMock</span></div>
+    <div class="sub">お客様向け 見本サイト ギャラリー</div>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <h1>見本サイト一覧</h1>
+    <p class="lead">提案用のデモサイトをここに集約しています。会社名・住所などはプレースホルダ（〇〇）で、お客様ごとに差し替えて使い回せます。</p>
+    <div class="grid">
+      <a class="card" href="mocks/koumuten/index.html">
+        <div class="thumb">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M10 30 32 12l22 18"/><path d="M15 28v22h34V28"/><path d="M27 50V36h10v14"/></svg>
+        </div>
+        <div class="b">
+          <span class="tag">工務店 / 木の家</span>
+          <h2>大工の工務店テンプレート</h2>
+          <p>自然素材・注文住宅・古民家リノベ・耐震。1ページ完結の汎用LP。</p>
+          <span class="open">サイトを開く →</span>
+        </div>
+      </a>
+      <!-- 新しい見本はここにカードを追加 -->
+    </div>
+  </div>
+</main>
+<footer><div class="wrap">StellaWebMock — internal demo gallery</div></footer>
+</body>
+</html>

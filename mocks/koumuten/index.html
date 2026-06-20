@@ -24,9 +24,7 @@
     works-fukinuke.jpg    … 施工事例：吹き抜け
     works-kominka.jpg     … 施工事例：古民家再生
     commit-muku.jpg / commit-shikkui.jpg / commit-dannetsu.jpg / commit-tsuuki.jpg / commit-sekou.jpg
-    message-daihyo.jpg    … 代表ポートレート
-    message-work.jpg      … 大工の手仕事
-    guide-soudan.jpg / guide-shindan.jpg / guide-taishin.jpg
+    （代表メッセージ／ご相談・ご案内は写真なし＝引用符・アイコン表現）
   ============================================================
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -150,19 +148,23 @@
 
   /* 代表メッセージ */
   .message{background:var(--cream);}
-  .msg-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;}
-  .msg-text .en{display:block;font-family:var(--serif);letter-spacing:.3em;font-size:.7rem;color:var(--green);margin-bottom:10px;}
-  .msg-text h2{font-size:clamp(1.4rem,3vw,1.9rem);margin-bottom:22px;letter-spacing:.05em;}
-  .msg-text p{font-size:.92rem;line-height:2.05;margin:0 0 22px;}
-  .sign{font-family:var(--serif);color:var(--ink);font-size:1.05rem;letter-spacing:.08em;}
-  .sign small{display:block;font-family:var(--sans);font-size:.74rem;color:var(--muted);letter-spacing:.1em;margin-bottom:4px;}
-  .msg-media{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-  .msg-media .ph{border-radius:var(--radius);box-shadow:var(--shadow-sm);}
-  .msg-media .portrait{aspect-ratio:3/4;}
-  .msg-media .work{aspect-ratio:3/4;margin-top:30px;}
+  .msg-block{max-width:760px;margin:0 auto;text-align:center;}
+  .msg-block .en{display:block;font-family:var(--serif);letter-spacing:.3em;font-size:.7rem;color:var(--green);margin-bottom:10px;}
+  .msg-block h2{font-size:clamp(1.4rem,3vw,1.95rem);margin-bottom:14px;letter-spacing:.05em;}
+  .msg-block .quote{display:block;font-family:Georgia,'Times New Roman',serif;font-size:4.2rem;line-height:.7;color:var(--green);opacity:.22;}
+  .msg-block p{font-size:.98rem;line-height:2.15;margin:0 auto 26px;max-width:680px;color:var(--body);}
+  .sign{font-family:var(--serif);color:var(--ink);font-size:1.1rem;letter-spacing:.08em;}
+  .sign small{display:block;font-family:var(--sans);font-size:.74rem;color:var(--muted);letter-spacing:.1em;margin-bottom:6px;}
 
   .guide{background:#fff;}
-  .guide .pcard .ph{aspect-ratio:16/9;}
+  .gcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:40px 30px 32px;text-align:center;box-shadow:var(--shadow-sm);transition:.3s;display:flex;flex-direction:column;align-items:center;}
+  .gcard:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+  .gicon{width:74px;height:74px;border-radius:50%;background:linear-gradient(135deg,#eef2e8,#dfe9d4);display:flex;align-items:center;justify-content:center;margin-bottom:22px;color:var(--green);transition:.3s;}
+  .gcard:hover .gicon{background:var(--green);color:#fff;transform:scale(1.05);}
+  .gicon svg{width:34px;height:34px;}
+  .gcard h3{font-size:1.12rem;margin-bottom:10px;letter-spacing:.04em;}
+  .gcard p{font-size:.85rem;color:var(--body);line-height:1.9;margin:0 0 18px;}
+  .gcard .more{margin-top:auto;}
 
   /* 問い合わせフォーム */
   .contact{background:var(--cream);}
@@ -233,7 +235,6 @@
   @media(max-width:980px){
     .feat-grid,.card-grid-4{grid-template-columns:repeat(2,1fr);}
     .commit-grid{grid-template-columns:repeat(3,1fr);}
-    .msg-wrap{grid-template-columns:1fr;gap:34px;}.msg-media{max-width:440px;}
     .foot-main{grid-template-columns:1fr 1fr;}.foot-brand{grid-column:1/-1;}
   }
   @media(max-width:720px){
@@ -365,16 +366,15 @@
 
   <!-- 代表メッセージ -->
   <section class="sec message" id="message">
-    <div class="container"><div class="msg-wrap">
-      <div class="msg-text reveal"><span class="en">Message</span><h2>代表メッセージ</h2>
+    <div class="container">
+      <div class="msg-block reveal">
+        <span class="en">Message</span>
+        <h2>代表メッセージ</h2>
+        <span class="quote">&ldquo;</span>
         <p>家は、家族の暮らしを包み、未来をつくる大切な場所です。私たちは、自然素材と大工の手仕事にこだわり、住むほどに愛着が深まる家づくりを目指しています。地域の気候や風土を知り尽くした工務店として、これからも皆さまの暮らしに寄り添ってまいります。</p>
         <p class="sign"><small>代表 大工</small>〇〇　〇〇</p><!-- EDIT: 代表者名 -->
       </div>
-      <div class="msg-media reveal">
-        <div class="ph portrait green"><img src="img/message-daihyo.jpg" alt="代表" loading="lazy" onerror="this.remove()"></div>
-        <div class="ph work"><img src="img/message-work.jpg" alt="大工の手仕事" loading="lazy" onerror="this.remove()"></div>
-      </div>
-    </div></div>
+    </div>
   </section>
 
   <!-- ご相談・ご案内 -->
@@ -382,9 +382,24 @@
     <div class="container">
       <div class="sec-head reveal"><span class="en">Information</span><h2>ご相談・ご案内</h2></div>
       <div class="card-grid-3">
-        <a class="pcard reveal" href="#contact"><div class="ph alt1"><img src="img/guide-soudan.jpg" alt="家づくり相談会" loading="lazy" onerror="this.remove()"></div><div class="body"><h3>家づくり相談会</h3><p>土地探しや資金計画など、家づくりのはじめの一歩をサポートします。</p><span class="more">詳しく見る <span class="arw">→</span></span></div></a>
-        <a class="pcard reveal" href="#contact"><div class="ph alt2"><img src="img/guide-shindan.jpg" alt="古民家診断" loading="lazy" onerror="this.remove()"></div><div class="body"><h3>古民家診断</h3><p>古民家の状態を調査し、活かす方法をご提案します。</p><span class="more">詳しく見る <span class="arw">→</span></span></div></a>
-        <a class="pcard reveal" href="#contact"><div class="ph green"><img src="img/guide-taishin.jpg" alt="耐震相談" loading="lazy" onerror="this.remove()"></div><div class="body"><h3>耐震相談</h3><p>耐震診断や補強工事のご相談を承ります。</p><span class="more">詳しく見る <span class="arw">→</span></span></div></a>
+        <a class="gcard reveal" href="#contact">
+          <span class="gicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h12a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path d="M6 9h8M6 12h5"/></svg></span>
+          <h3>家づくり相談会</h3>
+          <p>土地探しや資金計画など、家づくりのはじめの一歩をサポートします。</p>
+          <span class="more">詳しく見る <span class="arw">→</span></span>
+        </a>
+        <a class="gcard reveal" href="#contact">
+          <span class="gicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11 12 4l9 7"/><path d="M5 10v9h7"/><circle cx="16.5" cy="16" r="3"/><path d="m18.7 18.2 2.3 2.3"/></svg></span>
+          <h3>古民家診断</h3>
+          <p>古民家の状態を調査し、活かす方法をご提案します。</p>
+          <span class="more">詳しく見る <span class="arw">→</span></span>
+        </a>
+        <a class="gcard reveal" href="#contact">
+          <span class="gicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="m9 11 2 2 4-4"/></svg></span>
+          <h3>耐震相談</h3>
+          <p>耐震診断や補強工事のご相談を承ります。</p>
+          <span class="more">詳しく見る <span class="arw">→</span></span>
+        </a>
       </div>
     </div>
   </section>

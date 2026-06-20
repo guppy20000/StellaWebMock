@@ -6,92 +6,170 @@
 <title>青空ペイント｜外壁・屋根塗装専門店</title>
 <meta name="description" content="地域密着の自社職人による高品質な外壁・屋根塗装。無料見積もり受付中。" />
 <!--
-  ============================================================
-  イメージマップ方式のデモページ（背面に1枚画像＋透明クリック領域）
-  ・hp.png をそのまま背面に敷き、クリックさせたい所だけ透明 <a> を%で重ねる
-  ・ナビ/ボタンを押すと該当セクションの「アンカー」へスムーススクロール
-  ・座標は全て画像(941x1672)からの% → 画面幅が変わっても画像とぴったり伸縮
-  ・末尾に ?edit を付けてアクセスするとクリック領域が青く可視化されます
-    （位置調整したい時の確認用）
-  ============================================================
+  ハイブリッド構成：
+  ・上部（ヒーロー〜よくある質問）は デザイン画像 hp-top.png ＋ 透明クリック領域
+  ・下部の「ご相談CTA帯」と「フッター」は 本物のHTML（電話番号は選択・タップ可）
+  ・?edit を付けるとクリック領域を可視化
 -->
 <style>
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{background:#e9edf1;font-family:system-ui,sans-serif;}
-  .map{position:relative;max-width:960px;margin:0 auto;background:#fff;box-shadow:0 10px 40px -18px rgba(0,0,0,.3);}
+  body{background:#e9edf1;font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;color:#1b2c47;}
+  .page{max-width:960px;margin:0 auto;background:#fff;box-shadow:0 10px 40px -18px rgba(0,0,0,.3);}
+
+  /* ===== 上部：画像＋ホットスポット ===== */
+  .map{position:relative;}
   .map>img{width:100%;display:block;}
-
-  /* スクロール先アンカー（セクションの縦位置に%で配置） */
   .anchor{position:absolute;left:0;width:1px;height:1px;}
-
-  /* 透明クリック領域 */
   .hot{position:absolute;display:block;border-radius:8px;transition:background .15s;}
   .hot:hover{background:rgba(0,130,255,.14);}
-  .hot:focus-visible{outline:2px solid #0a7;}
-
-  /* ?edit でクリック領域を可視化（調整確認用） */
   body.show-hot .hot{background:rgba(0,130,255,.22);outline:1px solid rgba(0,80,190,.6);}
 
-  /* トップ（ナビ）へ戻る小ボタン */
-  .totop{position:fixed;right:16px;bottom:16px;width:46px;height:46px;border-radius:50%;
-    background:#1f5fd0;color:#fff;border:none;cursor:pointer;font-size:18px;line-height:46px;
-    text-align:center;box-shadow:0 8px 20px -6px rgba(0,0,0,.5);opacity:0;pointer-events:none;
-    transition:.25s;z-index:20;text-decoration:none;}
+  /* ===== CTA帯（本物HTML） ===== */
+  .cta{background:linear-gradient(120deg,#2f74d0,#1c54a6);color:#fff;padding:30px 24px;position:relative;overflow:hidden;}
+  .cta::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 88% 18%,rgba(255,255,255,.18),transparent 42%);}
+  .cta-inner{position:relative;max-width:880px;margin:0 auto;display:flex;align-items:center;gap:26px;flex-wrap:wrap;justify-content:center;}
+  .cta-badge{flex:none;width:86px;height:86px;border-radius:50%;background:#f5821f;color:#fff;font-weight:800;font-size:.78rem;line-height:1.35;display:flex;align-items:center;justify-content:center;text-align:center;box-shadow:0 8px 18px -6px rgba(0,0,0,.4);}
+  .cta-main{text-align:center;}
+  .cta-main h2{font-size:clamp(1.3rem,3.2vw,1.75rem);font-weight:800;letter-spacing:.02em;}
+  .cta-main .sub{font-size:.84rem;opacity:.95;margin-top:6px;}
+  .cta-tel{display:inline-flex;align-items:center;gap:10px;font-size:clamp(1.9rem,5.5vw,2.6rem);font-weight:800;color:#fff;margin-top:12px;letter-spacing:.02em;line-height:1;}
+  .cta-tel svg{width:.78em;height:.78em;}
+  .cta-hours{font-size:.76rem;opacity:.92;margin-top:6px;}
+  .cta-btns{display:flex;flex-direction:column;gap:11px;flex:none;}
+  .btn-orange,.btn-white{font-weight:700;padding:14px 26px;border-radius:9px;text-align:center;white-space:nowrap;transition:.2s;font-size:.92rem;}
+  .btn-orange{background:#f5821f;color:#fff;box-shadow:0 10px 20px -8px rgba(245,130,31,.9);}
+  .btn-orange:hover{background:#e2731a;transform:translateY(-1px);}
+  .btn-white{background:#fff;color:#1c54a6;}
+  .btn-white:hover{background:#eef3fb;}
+
+  /* ===== フッター（本物HTML） ===== */
+  .foot{background:#1b2c47;color:#c7d2e2;}
+  .foot-inner{max-width:880px;margin:0 auto;padding:44px 24px 26px;display:grid;grid-template-columns:1.7fr 1fr 1fr;gap:34px;}
+  .foot-logo{font-weight:800;font-size:1.3rem;color:#fff;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+  .foot-logo small{font-size:.6rem;color:#9fb2cf;letter-spacing:.1em;font-weight:600;}
+  .foot-brand p{margin-top:14px;line-height:1.9;font-size:.8rem;color:#aebcd2;max-width:340px;}
+  .foot-brand .info{margin-top:16px;font-size:.78rem;line-height:1.85;color:#c7d2e2;}
+  .foot-brand .info a{color:#fff;}
+  .foot-col h4{color:#fff;font-size:.82rem;margin-bottom:12px;letter-spacing:.04em;}
+  .foot-col a{display:block;color:#aebcd2;padding:5px 0;font-size:.8rem;transition:.2s;}
+  .foot-col a:hover{color:#fff;}
+  .foot-social{display:flex;gap:11px;margin-top:18px;}
+  .foot-social a{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#fff;transition:.2s;}
+  .foot-social a:hover{background:#2f74d0;}
+  .foot-social svg{width:18px;height:18px;}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.12);text-align:center;padding:15px;font-size:.72rem;color:#8ea2bf;}
+
+  /* トップへ戻る */
+  .totop{position:fixed;right:16px;bottom:16px;width:46px;height:46px;border-radius:50%;background:#1f5fd0;color:#fff;border:none;cursor:pointer;font-size:18px;line-height:46px;text-align:center;box-shadow:0 8px 20px -6px rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:.25s;z-index:20;text-decoration:none;}
   .totop.show{opacity:1;pointer-events:auto;}
   .totop:hover{background:#1748a8;}
+
+  @media(max-width:640px){
+    .cta-btns{width:100%;}
+    .btn-orange,.btn-white{width:100%;}
+    .foot-inner{grid-template-columns:1fr;gap:24px;}
+  }
 </style>
 </head>
 <body id="top">
-  <div class="map">
-    <img src="hp.png" alt="青空ペイント｜外壁・屋根塗装専門店" />
+  <div class="page">
 
-    <!-- ===== スクロール先アンカー ===== -->
-    <span class="anchor" id="reasons" style="top:18.4%"></span>
-    <span class="anchor" id="works"   style="top:38.4%"></span>
-    <span class="anchor" id="price"   style="top:52.7%"></span>
-    <span class="anchor" id="flow"    style="top:61.8%"></span>
-    <span class="anchor" id="contact" style="top:83.7%"></span>
-    <span class="anchor" id="company" style="top:92.8%"></span>
+    <!-- ===== 上部：画像＋クリック領域 ===== -->
+    <div class="map">
+      <img src="hp-top.png" alt="青空ペイント｜外壁・屋根塗装専門店" />
 
-    <!-- ===== ナビゲーション（ジャンプ） ===== -->
-    <a class="hot" href="#top"     style="left:32.4%;top:1.1%;width:5.3%;height:2.2%" aria-label="ホーム"></a>
-    <a class="hot" href="#reasons" style="left:40.7%;top:1.1%;width:9.0%;height:2.2%" aria-label="選ばれる理由"></a>
-    <a class="hot" href="#works"   style="left:53.1%;top:1.1%;width:7.2%;height:2.2%" aria-label="施工事例"></a>
-    <a class="hot" href="#price"   style="left:64.1%;top:1.1%;width:6.9%;height:2.2%" aria-label="料金目安"></a>
-    <a class="hot" href="#flow"    style="left:74.4%;top:1.1%;width:8.0%;height:2.2%" aria-label="施工の流れ"></a>
-    <a class="hot" href="#company" style="left:85.0%;top:1.1%;width:6.7%;height:2.2%" aria-label="会社情報"></a>
-    <a class="hot" href="#contact" style="left:92.2%;top:1.0%;width:5.8%;height:2.6%" aria-label="お問い合わせ"></a>
+      <!-- スクロール先アンカー（高さ1390基準） -->
+      <span class="anchor" id="reasons" style="top:22.2%"></span>
+      <span class="anchor" id="works"   style="top:46.2%"></span>
+      <span class="anchor" id="price"   style="top:63.4%"></span>
+      <span class="anchor" id="flow"    style="top:74.4%"></span>
 
-    <!-- ===== ヒーローのボタン ===== -->
-    <a class="hot" href="#contact" style="left:4.3%;top:14.8%;width:20.0%;height:2.7%" aria-label="無料見積もりはこちら"></a>
-    <a class="hot" href="#works"   style="left:26.3%;top:14.8%;width:15.5%;height:2.7%" aria-label="施工事例を見る"></a>
+      <!-- ナビ -->
+      <a class="hot" href="#top"     style="left:32.4%;top:1.3%;width:5.3%;height:2.6%" aria-label="ホーム"></a>
+      <a class="hot" href="#reasons" style="left:40.7%;top:1.3%;width:9.0%;height:2.6%" aria-label="選ばれる理由"></a>
+      <a class="hot" href="#works"   style="left:53.1%;top:1.3%;width:7.2%;height:2.6%" aria-label="施工事例"></a>
+      <a class="hot" href="#price"   style="left:64.1%;top:1.3%;width:6.9%;height:2.6%" aria-label="料金目安"></a>
+      <a class="hot" href="#flow"    style="left:74.4%;top:1.3%;width:8.0%;height:2.6%" aria-label="施工の流れ"></a>
+      <a class="hot" href="#company" style="left:85.0%;top:1.3%;width:6.7%;height:2.6%" aria-label="会社情報"></a>
+      <a class="hot" href="#contact" style="left:92.2%;top:1.2%;width:5.8%;height:3.0%" aria-label="お問い合わせ"></a>
 
-    <!-- ===== サービス紹介「詳しく見る」 ===== -->
-    <a class="hot" href="#contact" style="left:7.4%;top:36.0%;width:8.5%;height:1.6%" aria-label="外壁塗装 詳しく見る"></a>
-    <a class="hot" href="#contact" style="left:30.6%;top:36.0%;width:8.5%;height:1.6%" aria-label="屋根塗装 詳しく見る"></a>
-    <a class="hot" href="#contact" style="left:54.0%;top:36.0%;width:8.5%;height:1.6%" aria-label="防水工事 詳しく見る"></a>
-    <a class="hot" href="#contact" style="left:77.0%;top:36.0%;width:8.5%;height:1.6%" aria-label="付帯部塗装 詳しく見る"></a>
+      <!-- ヒーローのボタン -->
+      <a class="hot" href="#contact" style="left:4.3%;top:17.8%;width:20.0%;height:3.2%" aria-label="無料見積もりはこちら"></a>
+      <a class="hot" href="#works"   style="left:26.3%;top:17.8%;width:15.5%;height:3.2%" aria-label="施工事例を見る"></a>
 
-    <!-- ===== すべての施工事例を見る ===== -->
-    <a class="hot" href="#works" style="left:15.9%;top:50.6%;width:25.3%;height:1.7%" aria-label="すべての施工事例を見る"></a>
+      <!-- サービス「詳しく見る」 -->
+      <a class="hot" href="#contact" style="left:7.4%;top:43.4%;width:8.5%;height:1.8%" aria-label="外壁塗装 詳しく見る"></a>
+      <a class="hot" href="#contact" style="left:30.6%;top:43.4%;width:8.5%;height:1.8%" aria-label="屋根塗装 詳しく見る"></a>
+      <a class="hot" href="#contact" style="left:54.0%;top:43.4%;width:8.5%;height:1.8%" aria-label="防水工事 詳しく見る"></a>
+      <a class="hot" href="#contact" style="left:77.0%;top:43.4%;width:8.5%;height:1.8%" aria-label="付帯部塗装 詳しく見る"></a>
 
-    <!-- ===== 下部CTA：電話・問い合わせ ===== -->
-    <a class="hot" href="tel:0120118724" style="left:9.4%;top:88.8%;width:24.1%;height:2.7%" aria-label="電話 0120-11-8724"></a>
-    <a class="hot" href="mailto:info@example.com" style="left:59.0%;top:87.4%;width:33.5%;height:2.5%" aria-label="無料見積もり・お問い合わせはこちら"></a>
-    <a class="hot" href="mailto:info@example.com" style="left:59.0%;top:90.1%;width:33.5%;height:2.4%" aria-label="メールでのお問い合わせ"></a>
+      <!-- すべての施工事例を見る -->
+      <a class="hot" href="#works" style="left:15.9%;top:61.0%;width:25.3%;height:1.9%" aria-label="すべての施工事例を見る"></a>
+    </div>
+
+    <!-- ===== CTA帯（本物HTML・電話タップ可） ===== -->
+    <section class="cta" id="contact">
+      <div class="cta-inner">
+        <div class="cta-badge">相談<br>見積もり<br>無料</div>
+        <div class="cta-main">
+          <h2>まずはお気軽にご相談ください！</h2>
+          <p class="sub">お住まいの診断・お見積もりは無料です。しつこい営業は一切いたしません。</p>
+          <a class="cta-tel" href="tel:0120118724">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h3l2 5-2.5 1.5a12 12 0 0 0 6 6L17 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 1-2z"/></svg>
+            0120-11-8724
+          </a>
+          <p class="cta-hours">受付時間 8:00〜19:00（年中無休）</p>
+        </div>
+        <div class="cta-btns">
+          <a class="btn-orange" href="mailto:info@example.com">無料見積もり・お問い合わせはこちら →</a>
+          <a class="btn-white" href="mailto:info@example.com">メールでのお問い合わせ</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== フッター（本物HTML） ===== -->
+    <footer class="foot" id="company">
+      <div class="foot-inner">
+        <div class="foot-brand">
+          <div class="foot-logo">青空ペイント <small>外壁・屋根塗装専門店</small></div>
+          <p>地域密着20年以上の実績。自社職人による高品質施工で、大切な住まいを守ります。</p>
+          <div class="info">
+            株式会社 青空ペイント<br>
+            〒222-0033　神奈川県横浜市港北区新横浜1-1-1 新横浜ビル 3F<br>
+            TEL. <a href="tel:0120118724">0120-11-8724</a>　FAX. 045-000-0001
+          </div>
+        </div>
+        <div class="foot-col">
+          <h4>メニュー</h4>
+          <a href="#top">ホーム</a>
+          <a href="#reasons">選ばれる理由</a>
+          <a href="#works">施工事例</a>
+          <a href="#price">料金目安</a>
+        </div>
+        <div class="foot-col">
+          <h4>ご案内</h4>
+          <a href="#flow">施工の流れ</a>
+          <a href="#company">会社情報</a>
+          <a href="#">プライバシーポリシー</a>
+          <a href="#">サイトマップ</a>
+          <div class="foot-social">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H8v3h3v6h3v-6h3l1-3h-4V9z"/></svg></a>
+            <a href="#" aria-label="LINE"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 4c4.4 0 8 2.9 8 6.5 0 3.6-3.6 6.5-8 6.5-.7 0-1.4-.1-2-.2L6 19l1-2.7C5.2 15.1 4 13 4 10.5 4 6.9 7.6 4 12 4z"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="foot-bottom">© 2025 青空ペイント All Rights Reserved.</div>
+    </footer>
+
   </div>
 
   <a href="#top" class="totop" id="totop" aria-label="トップへ戻る">▲</a>
-
   <script>
-    // ?edit でクリック領域を可視化（位置調整の確認用）
     if (location.search.indexOf('edit') > -1) document.body.classList.add('show-hot');
-    // 少しスクロールしたら「トップへ」ボタン表示（ナビへ戻れる）
     const totop = document.getElementById('totop');
-    addEventListener('scroll', () => {
-      totop.classList.toggle('show', scrollY > 600);
-    }, { passive: true });
+    addEventListener('scroll', () => { totop.classList.toggle('show', scrollY > 600); }, { passive:true });
   </script>
 </body>
 </html>

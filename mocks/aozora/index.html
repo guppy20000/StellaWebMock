@@ -41,13 +41,7 @@
   .anchor{position:absolute;left:0;width:1px;height:1px;}
 
   .btnabs{position:absolute;display:flex;align-items:center;justify-content:center;gap:.4cqw;font-weight:800;white-space:nowrap;cursor:pointer;transition:.18s;border-radius:1cqw;}
-  .b-orange{background:#f5821f;color:#fff;font-size:1.7cqw;box-shadow:0 .8cqw 1.6cqw -.8cqw rgba(245,130,31,.8);}
-  .b-orange:hover{background:#e2731a;transform:translateY(-.45cqw);box-shadow:0 1.9cqw 2.8cqw -1cqw rgba(245,130,31,.7);}
-  .b-orange:active{transform:translateY(-.1cqw);}
-  .b-white{background:#fff;color:#1f5fd0;border:.12cqw solid #1f5fd0;font-size:1.7cqw;}
-  .b-white:hover{transform:translateY(-.45cqw);box-shadow:0 1.9cqw 2.8cqw -1cqw rgba(0,0,0,.22);}
-  .b-white:active{transform:translateY(-.1cqw);}
-  /* サービス「詳しく見る」/「すべての施工事例」は画像の文字を活かし、透明クリック領域に（文字の二重表示を回避） */
+/* サービス「詳しく見る」/「すべての施工事例」は画像の文字を活かし、透明クリック領域に（文字の二重表示を回避） */
   .b-link{background:transparent;}
 
   /* ===== CTA帯（本物HTML） ===== */
@@ -130,9 +124,9 @@
       <span class="anchor" id="price"   style="top:62.8%"></span>
       <span class="anchor" id="flow"    style="top:74.5%"></span>
 
-      <!-- ヒーローの本物ボタン -->
-      <a class="btnabs b-orange" href="#contact" style="left:4.3%;top:14.0%;width:20.0%;height:3.4%">無料見積もりはこちら ›</a>
-      <a class="btnabs b-white"  href="#works"   style="left:26.3%;top:14.0%;width:15.5%;height:3.4%">施工事例を見る ›</a>
+      <!-- ヒーローのボタン：画像の絵を活かし透明クリック領域に -->
+      <a class="btnabs b-link" href="#contact" style="left:4.3%;top:14.0%;width:20.0%;height:3.4%" aria-label="無料見積もりはこちら"></a>
+      <a class="btnabs b-link" href="#works"   style="left:26.3%;top:14.0%;width:15.5%;height:3.4%" aria-label="施工事例を見る"></a>
 
       <!-- サービス/施工事例の小リンク：画像の文字を活かし透明クリック領域に -->
       <a class="btnabs b-link" href="#contact" style="left:7.4%;top:41.3%;width:8.5%;height:1.8%" aria-label="外壁塗装 詳しく見る"></a>

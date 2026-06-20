@@ -17,6 +17,7 @@
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{background:#e9edf1;font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;color:#1b2c47;}
+  a{text-decoration:none;color:inherit;}
   .page{max-width:960px;margin:0 auto;background:#fff;box-shadow:0 10px 40px -18px rgba(0,0,0,.3);}
 
   /* ===== 本物のヘッダー（スティッキー） ===== */
@@ -28,10 +29,8 @@
   .hdr-name b{font-size:1.2rem;letter-spacing:.02em;}
   .hdr-name small{font-size:.6rem;color:#6b7a90;font-weight:600;letter-spacing:.05em;}
   .hdr-nav{margin-left:auto;display:flex;gap:24px;align-items:center;}
-  .hdr-nav a{font-size:.9rem;font-weight:700;color:#1b2c47;position:relative;padding:4px 0;}
+  .hdr-nav a{font-size:.9rem;font-weight:700;color:#1b2c47;}
   .hdr-nav a:hover{color:#1f5fd0;}
-  .hdr-nav a::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:#1f5fd0;transition:.2s;}
-  .hdr-nav a:hover::after{width:100%;}
   .hdr-cta{background:#1f5fd0;color:#fff;font-weight:700;font-size:.88rem;padding:11px 22px;border-radius:8px;transition:.18s;white-space:nowrap;box-shadow:0 6px 14px -6px rgba(31,95,208,.8);}
   .hdr-cta:hover{background:#1748a8;transform:translateY(-2px);box-shadow:0 12px 20px -8px rgba(31,95,208,.9);}
   .hdr-cta:active{transform:translateY(0);}
@@ -48,12 +47,8 @@
   .b-white{background:#fff;color:#1f5fd0;border:.12cqw solid #1f5fd0;font-size:1.7cqw;}
   .b-white:hover{transform:translateY(-.45cqw);box-shadow:0 1.9cqw 2.8cqw -1cqw rgba(0,0,0,.22);}
   .b-white:active{transform:translateY(-.1cqw);}
-  .b-detail{background:#fff;color:#1f5fd0;font-size:1.25cqw;font-weight:700;justify-content:flex-start;padding-left:.5cqw;}
-  .b-detail:hover{color:#1748a8;transform:translateY(-.3cqw);}
-  .b-detail:active{transform:translateY(0);}
-  .b-works{background:#fff;color:#1f5fd0;border:.12cqw solid #1f5fd0;font-size:1.4cqw;border-radius:.7cqw;}
-  .b-works:hover{transform:translateY(-.45cqw);box-shadow:0 1.7cqw 2.6cqw -1cqw rgba(31,95,208,.45);}
-  .b-works:active{transform:translateY(-.1cqw);}
+  /* サービス「詳しく見る」/「すべての施工事例」は画像の文字を活かし、透明クリック領域に（文字の二重表示を回避） */
+  .b-link{background:transparent;}
 
   /* ===== CTA帯（本物HTML） ===== */
   .cta{background:linear-gradient(120deg,#2f74d0,#1c54a6);color:#fff;padding:30px 24px;position:relative;overflow:hidden;}
@@ -139,14 +134,13 @@
       <a class="btnabs b-orange" href="#contact" style="left:4.3%;top:14.0%;width:20.0%;height:3.4%">無料見積もりはこちら ›</a>
       <a class="btnabs b-white"  href="#works"   style="left:26.3%;top:14.0%;width:15.5%;height:3.4%">施工事例を見る ›</a>
 
-      <!-- サービス「詳しく見る」本物ボタン -->
-      <a class="btnabs b-detail" href="#contact" style="left:7.4%;top:41.3%;width:8.5%;height:1.8%">詳しく見る ›</a>
-      <a class="btnabs b-detail" href="#contact" style="left:30.6%;top:41.3%;width:8.5%;height:1.8%">詳しく見る ›</a>
-      <a class="btnabs b-detail" href="#contact" style="left:54.0%;top:41.3%;width:8.5%;height:1.8%">詳しく見る ›</a>
-      <a class="btnabs b-detail" href="#contact" style="left:77.0%;top:41.3%;width:8.5%;height:1.8%">詳しく見る ›</a>
+      <!-- サービス/施工事例の小リンク：画像の文字を活かし透明クリック領域に -->
+      <a class="btnabs b-link" href="#contact" style="left:7.4%;top:41.3%;width:8.5%;height:1.8%" aria-label="外壁塗装 詳しく見る"></a>
+      <a class="btnabs b-link" href="#contact" style="left:30.6%;top:41.3%;width:8.5%;height:1.8%" aria-label="屋根塗装 詳しく見る"></a>
+      <a class="btnabs b-link" href="#contact" style="left:54.0%;top:41.3%;width:8.5%;height:1.8%" aria-label="防水工事 詳しく見る"></a>
+      <a class="btnabs b-link" href="#contact" style="left:77.0%;top:41.3%;width:8.5%;height:1.8%" aria-label="付帯部塗装 詳しく見る"></a>
 
-      <!-- すべての施工事例を見る 本物ボタン -->
-      <a class="btnabs b-works" href="#works" style="left:15.9%;top:60.2%;width:25.3%;height:2.0%">すべての施工事例を見る ›</a>
+      <a class="btnabs b-link" href="#works" style="left:15.9%;top:60.2%;width:25.3%;height:2.0%" aria-label="すべての施工事例を見る"></a>
     </div>
 
     <!-- ===== CTA帯 ===== -->

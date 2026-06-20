@@ -1,0 +1,70 @@
+{
+  "generated": "2026-06-20T08:34:07.978Z",
+  "count": 8,
+  "sites": [
+    {
+      "slug": "aozora",
+      "name": "〇〇ペイント",
+      "title": "〇〇ペイント｜外壁・屋根塗装専門店",
+      "description": "地域密着の自社職人による高品質な外壁・屋根塗装。無料見積もり受付中。",
+      "path": "mocks/aozora/",
+      "thumbnail": "mocks/aozora/hp-top.png"
+    },
+    {
+      "slug": "isobe",
+      "name": "磯部建築",
+      "title": "磯部建築｜自然素材の木の家・注文住宅｜大工の工務店",
+      "description": "自然素材をふんだんに使った注文住宅、高気密・高断熱の住まい、古民家リノベーション・耐震工事まで。地域に根ざした大工の工務店です。",
+      "path": "mocks/isobe/",
+      "thumbnail": "mocks/koumuten/img/hero.jpg"
+    },
+    {
+      "slug": "koumuten",
+      "name": "〇〇工務店",
+      "title": "〇〇工務店｜自然素材の木の家・注文住宅｜大工の工務店",
+      "description": "自然素材をふんだんに使った注文住宅、高気密・高断熱の住まい、古民家リノベーション・耐震工事まで。地域に根ざした大工の工務店です。",
+      "path": "mocks/koumuten/",
+      "thumbnail": "mocks/koumuten/img/hero.jpg"
+    },
+    {
+      "slug": "sato",
+      "name": "佐藤企画",
+      "title": "佐藤企画｜建築コンサルタント・土地活用・家計のホームドクター",
+      "description": "自然素材をふんだんに使った注文住宅、高気密・高断熱の住まい、古民家リノベーション・耐震工事まで。地域に根ざした大工の工務店です。",
+      "path": "mocks/sato/",
+      "thumbnail": "mocks/koumuten/img/hero.jpg"
+    },
+    {
+      "slug": "sugiura",
+      "name": "杉浦建築",
+      "title": "杉浦建築｜自然素材の木の家・注文住宅｜大工の工務店",
+      "description": "自然素材をふんだんに使った注文住宅、高気密・高断熱の住まい、古民家リノベーション・耐震工事まで。地域に根ざした大工の工務店です。",
+      "path": "mocks/sugiura/",
+      "thumbnail": "mocks/koumuten/img/hero.jpg"
+    },
+    {
+      "slug": "tanaka",
+      "name": "田中建築",
+      "title": "田中建築｜自然素材の木の家・注文住宅｜大工の工務店",
+      "description": "自然素材をふんだんに使った注文住宅、高気密・高断熱の住まい、古民家リノベーション・耐震工事まで。地域に根ざした大工の工務店です。",
+      "path": "mocks/tanaka/",
+      "thumbnail": "mocks/koumuten/img/hero.jpg"
+    },
+    {
+      "slug": "tojo",
+      "name": "東條建築",
+      "title": "東條建築｜自然素材の木の家・注文住宅｜大工の工務店",
+      "description": "自然素材をふんだんに使った注文住宅、高気密・高断熱の住まい、古民家リノベーション・耐震工事まで。地域に根ざした大工の工務店です。",
+      "path": "mocks/tojo/",
+      "thumbnail": "mocks/koumuten/img/hero.jpg"
+    },
+    {
+      "slug": "yada",
+      "name": "矢田佳大",
+      "title": "矢田佳大｜自然素材の木の家・注文住宅｜大工の工務店",
+      "description": "自然素材をふんだんに使った注文住宅、高気密・高断熱の住まい、古民家リノベーション・耐震工事まで。地域に根ざした大工の工務店です。",
+      "path": "mocks/yada/",
+      "thumbnail": "mocks/koumuten/img/hero.jpg"
+    }
+  ]
+}
